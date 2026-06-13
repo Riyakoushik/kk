@@ -26,7 +26,7 @@
 .info-center,
 .info-right {
   font-family: 'Roboto', sans-serif;
-  font-size: 20px; /* Increased font size to 20px */
+  font-size: 20px;
   font-weight: 700; /* Bold */
   color: #ffffff;   /* White */
   text-transform: uppercase;
@@ -49,7 +49,7 @@
 /* Big Hero Title styling */
 .main-title {
   font-family: 'Vidaloka', serif;
-  font-size: clamp(100px, 18vw, 240px); /* Increased font size up to 240px */
+  font-size: clamp(100px, 18vw, 240px);
   font-weight: 700; /* Bold */
   text-transform: uppercase; /* All uppercase */
   color: #ffffff;   /* White */
@@ -59,6 +59,6 @@
   padding: 0 20px;
   box-sizing: border-box;
   z-index: 1;
-  transform: translateY(-340px); /* Moved closer to the top */
+  transform: translateY(-260px); /* Lowered slightly to prevent overlap/combining with top header */
   white-space: nowrap; /* Force single line */
 }
