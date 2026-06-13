@@ -49,7 +49,7 @@
 /* Big Hero Title styling */
 .main-title {
   font-family: 'Vidaloka', serif;
-  font-size: clamp(80px, 15vw, 200px); /* Restored to the previous 200px scale */
+  font-size: clamp(60px, 12vw, 160px); /* Slightly reduced font size up to 160px */
   font-weight: 700; /* Bold */
   text-transform: uppercase; /* All uppercase */
   color: #ffffff;   /* White */
