@@ -11,10 +11,10 @@
 
 .custom-content {
   position: absolute;
-  top: 32px;
+  top: 24px;
   left: 0;
   right: 0;
-  padding: 0 40px;
+  padding: 0 36px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,12 +26,11 @@
 .info-center,
 .info-right {
   font-family: 'Roboto', sans-serif;
-  font-size: 14px; /* Matches the clean small style in screenshot */
+  font-size: 20px; /* Increased font size to 20px */
   font-weight: 700; /* Bold */
   color: #ffffff;   /* White */
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  opacity: 0.9;
 }
 
 .info-right {
@@ -40,7 +39,7 @@
 }
 
 .info-right:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .info-right:active {
@@ -50,16 +49,16 @@
 /* Big Hero Title styling */
 .main-title {
   font-family: 'Vidaloka', serif;
-  font-size: clamp(60px, 9.2vw, 150px); /* Clean full-screen scale matching screenshot */
+  font-size: clamp(100px, 18vw, 240px); /* Increased font size up to 240px */
   font-weight: 700; /* Bold */
   text-transform: uppercase; /* All uppercase */
   color: #ffffff;   /* White */
   width: 100%;
   text-align: center;
-  letter-spacing: 0.02em;
-  padding: 0 40px;
+  letter-spacing: 0.1em;
+  padding: 0 20px;
   box-sizing: border-box;
   z-index: 1;
-  transform: translateY(-20px); /* Positioned elegantly below the header */
-  white-space: nowrap; /* Prevent line wrapping */
+  transform: translateY(-340px); /* Moved closer to the top */
+  white-space: nowrap; /* Force single line */
 }
