@@ -49,15 +49,16 @@
 /* Big Hero Title styling */
 .main-title {
   font-family: 'Vidaloka', serif;
-  font-size: clamp(80px, 15vw, 200px);
+  font-size: clamp(40px, 9vw, 200px); /* Adjusted scaling to fit screen dynamically */
   font-weight: 700; /* Bold */
   text-transform: uppercase; /* All uppercase */
   color: #ffffff;   /* White */
   width: 100%;
   text-align: center;
-  letter-spacing: 0.1em; /* Increased letter spacing */
+  letter-spacing: 0.1em;
   padding: 0 20px;
   box-sizing: border-box;
   z-index: 1;
   transform: translateY(-300px);
+  white-space: nowrap; /* Force the entire name onto one single line */
 }
