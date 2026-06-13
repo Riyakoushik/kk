@@ -26,7 +26,7 @@
 .info-center,
 .info-right {
   font-family: 'Roboto', sans-serif;
-  font-size: 20px; /* Increased font size to 20px */
+  font-size: 20px;
   font-weight: 700; /* Bold */
   color: #ffffff;   /* White */
   text-transform: uppercase;
@@ -55,7 +55,7 @@
   color: #ffffff;   /* White */
   width: 100%;
   text-align: center;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.1em; /* Increased letter spacing */
   padding: 0 20px;
   box-sizing: border-box;
   z-index: 1;
