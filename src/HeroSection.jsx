@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import SplitType from "split-type";
 import heroForDesktop from "./assets/herofordestop.png";
 
 // Helper function to format date/time immediately on initialization to prevent layout shift ("LOADING..." glitch)
@@ -18,6 +19,8 @@ const getFormattedDateTime = () => {
 const HeroSection = () => {
   // Initialize state directly with the formatted time to prevent layout shift on reload
   const [dateTime, setDateTime] = useState(getFormattedDateTime);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -27,6 +30,146 @@ const HeroSection = () => {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    if (!isMenuOpen || !menuRef.current) return;
+
+    // 1. Initialize SplitType on all split targets
+    const splitTargets = menuRef.current.querySelectorAll(".split-target");
+    const splitInstance = new SplitType(splitTargets, { types: "words, chars" });
+
+    // 2. Adjust widths and layout parameters based on rendered widths
+    const menuItems = menuRef.current.querySelectorAll(".menu-item");
+    menuItems.forEach((item) => {
+      const linkElement = item.querySelector(".menu-item-link a");
+      if (linkElement) {
+        const width = linkElement.offsetWidth;
+        const bgHover = item.querySelector(".menu-item-link .bg-hover");
+        if (bgHover) bgHover.style.width = width + 30 + "px";
+        const spanElement = item.querySelector("span");
+        if (spanElement) spanElement.style.left = width + 40 + "px";
+      }
+    });
+
+    // 3. Stagger menu items sliding in
+    menuItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.style.left = "0px";
+      }, index * 50);
+    });
+
+    // 4. Set up shuffle text effect function
+    const addShuffleEffect = (element) => {
+      const chars = element.querySelectorAll(".char");
+      if (!chars.length) return;
+      const originalText = [...chars].map((char) => char.textContent);
+      const shuffleInterval = 10;
+      const resetDelay = 75;
+      const additionalDelay = 150;
+
+      chars.forEach((char, index) => {
+        setTimeout(() => {
+          const interval = setInterval(() => {
+            char.textContent = String.fromCharCode(97 + Math.floor(Math.random() * 26));
+          }, shuffleInterval);
+
+          setTimeout(() => {
+            clearInterval(interval);
+            char.textContent = originalText[index];
+          }, resetDelay + index * additionalDelay);
+        }, index * shuffleInterval);
+      });
+    };
+
+    const shuffleAll = () => {
+      const shuffleTargets = menuRef.current.querySelectorAll(
+        ".menu-item-link a, .menu-sub-item .menu-title p, .menu-sub-item .menu-content p"
+      );
+      shuffleTargets.forEach((target) => {
+        addShuffleEffect(target);
+      });
+    };
+
+    // Trigger initial shuffle
+    shuffleAll();
+
+    // 5. Setup event listeners
+    const cleanupListeners = [];
+
+    // Hover text color changes tracking active character
+    menuItems.forEach((item) => {
+      const linkElement = item.querySelector(".menu-item-link a");
+      const chars = item.querySelectorAll("span .char");
+      if (linkElement && chars.length) {
+        const onMouseEnter = () => {
+          chars.forEach((char, index) => {
+            setTimeout(() => {
+              char.classList.add("char-active");
+            }, index * 50);
+          });
+        };
+        const onMouseLeave = () => {
+          chars.forEach((char) => {
+            char.classList.remove("char-active");
+          });
+        };
+
+        linkElement.addEventListener("mouseenter", onMouseEnter);
+        linkElement.addEventListener("mouseleave", onMouseLeave);
+
+        cleanupListeners.push(() => {
+          linkElement.removeEventListener("mouseenter", onMouseEnter);
+          linkElement.removeEventListener("mouseleave", onMouseLeave);
+        });
+      }
+    });
+
+    // Shuffle trigger on hover
+    const hoverTargets = menuRef.current.querySelectorAll(
+      ".menu-item, .menu-sub-item"
+    );
+    hoverTargets.forEach((item) => {
+      const targetElement = item.querySelector(
+        ".menu-item-link a, .menu-title p, .menu-content p"
+      );
+      const spanElement = item.querySelector("span");
+
+      const onMouseEnter = () => {
+        if (targetElement) addShuffleEffect(targetElement);
+        if (spanElement) addShuffleEffect(spanElement);
+      };
+
+      if (targetElement) {
+        targetElement.addEventListener("mouseenter", onMouseEnter);
+        cleanupListeners.push(() => {
+          targetElement.removeEventListener("mouseenter", onMouseEnter);
+        });
+      } else {
+        item.addEventListener("mouseenter", onMouseEnter);
+        cleanupListeners.push(() => {
+          item.removeEventListener("mouseenter", onMouseEnter);
+        });
+      }
+    });
+
+    return () => {
+      cleanupListeners.forEach((cleanup) => cleanup());
+      splitInstance.revert();
+    };
+  }, [isMenuOpen]);
+
+  const handleClose = () => {
+    if (!menuRef.current) return;
+    const menuItems = menuRef.current.querySelectorAll(".menu-item");
+    menuItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.style.left = "-100px";
+      }, index * 50);
+    });
+    setTimeout(() => {
+      setIsMenuOpen(false);
+    }, menuItems.length * 50 + 200);
+  };
+
   return (
     <div className="bg-[#000000] h-screen w-full flex flex-col items-center justify-start text-white overflow-hidden relative font-roboto pb-6">
       
@@ -35,7 +178,15 @@ const HeroSection = () => {
         <div className="w-[95%] max-w-[1600px] mx-auto flex justify-between items-center text-[18px] font-light text-white uppercase tracking-wider">
           <span>THALARI KOUSHIK</span>
           <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
-          <span>{dateTime}</span>
+          <div className="flex items-center gap-6">
+            <span className="hidden sm:inline">{dateTime}</span>
+            <button 
+              onClick={() => setIsMenuOpen(true)}
+              className="cursor-pointer hover:opacity-85 active:scale-95 transition-all font-medium border border-white/20 px-4 py-1 rounded-full text-[14px]"
+            >
+              MENU
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -59,6 +210,92 @@ const HeroSection = () => {
           />
         </div>
       </div>
+
+      {/* Slide-out Menu Overlay Container */}
+      <div 
+        ref={menuRef}
+        className={`menu-container ${isMenuOpen ? "open" : ""}`}
+      >
+        <div className="menu">
+          <div className="menu-main">
+            <div className="menu-top">
+              <div className="menu-top-title">
+                <p className="split-target">discover</p>
+              </div>
+              <div className="menu-top-content">
+                <div className="menu-item">
+                  <div className="menu-item-link">
+                    <div className="bg-hover"></div>
+                    <a href="#" className="split-target">story</a>
+                  </div>
+                  <span className="split-target">page 001</span>
+                </div>
+                <div className="menu-item">
+                  <div className="menu-item-link">
+                    <div className="bg-hover"></div>
+                    <a href="#" className="split-target">Protocol</a>
+                  </div>
+                  <span className="split-target">20 ideas</span>
+                </div>
+                <div className="menu-item">
+                  <div className="menu-item-link">
+                    <div className="bg-hover"></div>
+                    <a href="#" className="split-target">journal</a>
+                  </div>
+                  <span className="split-target">10 notes</span>
+                </div>
+                <div className="menu-item">
+                  <div className="menu-item-link">
+                    <div className="bg-hover"></div>
+                    <a href="#" className="split-target">contact</a>
+                  </div>
+                  <span className="split-target">email now</span>
+                </div>
+                <div className="menu-item" id="active">
+                  <div className="menu-item-link">
+                    <div className="bg-hover"></div>
+                    <a href="#" className="split-target">gallery</a>
+                  </div>
+                  <span className="split-target">check out</span>
+                </div>
+                <div className="menu-item">
+                  <div className="menu-item-link">
+                    <div className="bg-hover"></div>
+                    <a href="#" className="split-target">about</a>
+                  </div>
+                  <span className="split-target">our office</span>
+                </div>
+              </div>
+            </div>
+            <div className="menu-bottom">
+              <div className="menu-sub-item">
+                <div className="menu-title"><p className="split-target">connect</p></div>
+                <div className="menu-content"><p className="split-target">Discord</p></div>
+              </div>
+              <div className="menu-sub-item">
+                <div className="menu-title"><p className="split-target">buy On</p></div>
+                <div className="menu-content"><p className="split-target">Opensea</p></div>
+              </div>
+              <div className="menu-sub-item">
+                <div className="menu-title"><p className="split-target">us-en</p></div>
+                <div className="menu-content"><p className="split-target">2022</p></div>
+              </div>
+            </div>
+          </div>
+          <div className="menu-sidebar">
+            <button 
+              onClick={handleClose}
+              className="close-btn text-[28px] text-white/75 hover:text-white transition-colors flex items-center justify-center h-auto w-full cursor-pointer focus:outline-none"
+            >
+              <ion-icon name="close-sharp"></ion-icon>
+            </button>
+            <div className="logo text-[24px] text-white/70 mb-6 flex items-center justify-center">
+              <ion-icon name="funnel-sharp"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 };
