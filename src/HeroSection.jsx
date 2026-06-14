@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import SplitType from "split-type";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroForDesktop from "./assets/herofordestop.png";
-
-gsap.registerPlugin(ScrollTrigger);
 
 // Helper function to format date/time immediately on initialization to prevent layout shift ("LOADING..." glitch)
 const getFormattedDateTime = () => {
@@ -20,12 +16,11 @@ const getFormattedDateTime = () => {
   }).toUpperCase();
 };
 
-const HeroSection = () => {
+const HeroSection = ({ isLoaded }) => {
   // Initialize state directly with the formatted time to prevent layout shift on reload
   const [dateTime, setDateTime] = useState(getFormattedDateTime);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
-  const heroRef = useRef(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -33,69 +28,6 @@ const HeroSection = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
-
-  // Scroll animation timeline merging intro text slide-out, image scale, and hero header reveals
-  useEffect(() => {
-    if (!heroRef.current) return;
-
-    const nav = heroRef.current.querySelector("nav");
-    const h1 = heroRef.current.querySelector(".hero-title");
-    const imageContainer = heroRef.current.querySelector(".hero-image-container");
-    const introTexts = heroRef.current.querySelectorAll(".banner-intro-text");
-    const introContainer = heroRef.current.querySelector(".banner-intro-text-container");
-
-    if (!nav || !h1 || !imageContainer || !introContainer) return;
-
-    // Set initial states
-    gsap.set(nav, { opacity: 0, y: -20 });
-    gsap.set(h1, { opacity: 0, y: 30, scale: 0.98 });
-    gsap.set(imageContainer, { scale: 0.7, opacity: 0 });
-
-    const scrollAnim = ScrollTrigger.create({
-      trigger: heroRef.current,
-      start: "top top",
-      end: `+=${window.innerHeight * 1.8}px`,
-      pin: true,
-      scrub: 1,
-      pinSpacing: true,
-      onUpdate: (self) => {
-        const progress = self.progress;
-
-        // 1. Scale image container from 0.7 to 1.0 (smooth, physics-aware, no sudden scale(0) jumps)
-        gsap.set(imageContainer, { 
-          scale: 0.7 + Math.min(progress / 0.85, 1) * 0.3, 
-          opacity: Math.min(progress / 0.3, 1) 
-        });
-
-        // 2. Slide THALARI KOUSHIK intro text out
-        if (progress <= 0.8) {
-          const textProgress = progress / 0.8;
-          const moveDistance = window.innerWidth * 0.55;
-          if (introTexts.length === 2) {
-            gsap.set(introTexts[0], { x: -textProgress * moveDistance });
-            gsap.set(introTexts[1], { x: textProgress * moveDistance });
-          }
-          gsap.set(introContainer, { opacity: 1 - textProgress });
-        } else {
-          gsap.set(introContainer, { opacity: 0 });
-        }
-
-        // 3. Fade in nav & main headline title near the end (from 75% to 100% progress)
-        if (progress >= 0.75) {
-          const revealProgress = (progress - 0.75) / 0.25;
-          gsap.set(nav, { opacity: revealProgress, y: -20 + revealProgress * 20 });
-          gsap.set(h1, { opacity: revealProgress, y: 30 - revealProgress * 30, scale: 0.98 + revealProgress * 0.02 });
-        } else {
-          gsap.set(nav, { opacity: 0, y: -20 });
-          gsap.set(h1, { opacity: 0, y: 30, scale: 0.98 });
-        }
-      }
-    });
-
-    return () => {
-      scrollAnim.kill();
-    };
   }, []);
 
   // Close menu when clicking outside of it
@@ -266,13 +198,12 @@ const HeroSection = () => {
   };
 
   return (
-    <div 
-      ref={heroRef}
-      className="bg-[#000000] h-screen w-full flex flex-col items-center justify-start text-white overflow-x-hidden relative font-roboto pb-6"
-    >
+    <div className="bg-[#000000] h-screen w-full flex flex-col items-center justify-start text-white overflow-x-hidden relative font-roboto pb-6">
       
       {/* Navigation Bar - Fixed absolute at top, centered container aligning with the image/content below */}
-      <nav className="absolute top-0 left-0 w-full z-50 bg-black/85 backdrop-blur-md py-6">
+      <nav 
+        className="absolute top-0 left-0 w-full z-50 bg-black/85 backdrop-blur-md py-6 translate-y-0 opacity-100"
+      >
         <div className="w-[95%] max-w-[1600px] mx-auto flex justify-between items-center text-[18px] font-light text-white uppercase tracking-wider">
           <span>THALARI KOUSHIK</span>
           <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
@@ -291,35 +222,23 @@ const HeroSection = () => {
       {/* Hero Content Area - Takes up remaining screen space, flex column layout */}
       <div className="flex flex-col items-center justify-center pt-24 w-full h-full min-h-0 z-10 box-border">
         
-        {/* Hero Text - Font Bebas Neue, 400 weight, 0.5px letter-spacing, uppercase, white, centered.
-            Uses a mathematically tuned clamp to align perfectly with the expanded 1600px container width
-            without horizontal or vertical overflow. */}
-        <h1 className="hero-title font-bebas text-[clamp(100px,min(18.5vw,30vh),280px)] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px] w-[95%] max-w-[1600px]">
+        {/* Hero Text - Font Bebas Neue, 400 weight, 0.5px letter-spacing, uppercase, white, centered. */}
+        <h1 
+          className="hero-title font-bebas text-[clamp(100px,min(18.5vw,30vh),280px)] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px] w-[95%] max-w-[1600px] translate-y-0 opacity-100 scale-100"
+        >
           THALARI KOUSHIK
         </h1>
 
         {/* Image Container - Stretches wide to 95% (max 1600px) like the text, but height is constrained
             by flex-1 min-h-0 to guarantee no vertical scrolling. */}
-        <div className="hero-image-container w-[95%] max-w-[1600px] flex-1 min-h-0 rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(255,255,255,0.15)] border border-white/20 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.2)] hover:border-white/30">
+        <div 
+          className="hero-image-container w-[95%] max-w-[1600px] flex-1 min-h-0 rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(255,255,255,0.15)] border border-white/20 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.2)] hover:border-white/30 translate-y-0 opacity-100 scale-100"
+        >
           <img
             src={heroForDesktop}
             alt="Hero for Desktop"
             className="w-full h-full object-cover block"
           />
-        </div>
-      </div>
-
-      {/* Intro Overlay Text "THALARI KOUSHIK" - positioned over the viewport */}
-      <div className="banner-intro-text-container absolute top-1/2 -translate-y-1/2 w-full flex gap-2 md:gap-4 z-20 pointer-events-none font-bebas">
-        <div className="banner-intro-text flex-1 flex justify-end">
-          <h1 className="text-[clamp(3.5rem,10vw,12rem)] leading-[0.9] font-normal uppercase text-[#ffffff] tracking-[0.5px]">
-            THALARI
-          </h1>
-        </div>
-        <div className="banner-intro-text flex-1 flex justify-start">
-          <h1 className="text-[clamp(3.5rem,10vw,12rem)] leading-[0.9] font-normal uppercase text-[#ffffff] tracking-[0.5px]">
-            KOUSHIK
-          </h1>
         </div>
       </div>
 
