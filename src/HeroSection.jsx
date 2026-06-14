@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="flex flex-col items-center justify-center pt-32 pb-16 px-4 w-full z-10">
         
         {/* Hero Text - Font Bebas Neue, 900 weight, 0.5px letter-spacing, uppercase, white, centered */}
-        <h1 className="font-bebas text-5xl sm:text-7xl md:text-8xl lg:text-[110px] font-black uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px]">
+        <h1 className="font-bebas text-6xl sm:text-8xl md:text-[120px] lg:text-[160px] font-black uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px]">
           THALARI KOUSHIK
         </h1>
 
