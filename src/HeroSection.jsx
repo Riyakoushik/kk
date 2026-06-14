@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from "react";
 import heroForDesktop from "./assets/herofordestop.png";
 
+// Helper function to format date/time immediately on initialization to prevent layout shift ("LOADING..." glitch)
+const getFormattedDateTime = () => {
+  const now = new Date();
+  return now.toLocaleString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true
+  }).toUpperCase();
+};
+
 const HeroSection = () => {
-  const [dateTime, setDateTime] = useState("");
+  // Initialize state directly with the formatted time to prevent layout shift on reload
+  const [dateTime, setDateTime] = useState(getFormattedDateTime);
 
   useEffect(() => {
-    const formatDateTime = () => {
-      const now = new Date();
-      // Formatting example: "JUN 14, 2026, 10:13:05 AM"
-      return now.toLocaleString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-      }).toUpperCase();
-    };
-
-    setDateTime(formatDateTime());
     const timer = setInterval(() => {
-      setDateTime(formatDateTime());
+      setDateTime(getFormattedDateTime());
     }, 1000);
 
     return () => clearInterval(timer);
@@ -30,11 +30,11 @@ const HeroSection = () => {
   return (
     <div className="bg-[#000000] h-screen w-full flex flex-col items-center justify-start text-white overflow-hidden relative font-roboto pb-6">
       
-      {/* Navigation Bar - Fixed absolute at top, 100% width, font size 18px, white color, static (no hover animations) */}
+      {/* Navigation Bar - Fixed absolute at top, 100% width, font size 18px, white color, static */}
       <nav className="absolute top-0 left-0 w-full flex justify-between items-center px-9 py-6 z-50 text-[18px] font-light text-white uppercase tracking-wider bg-black/85 backdrop-blur-md">
         <span>THALARI KOUSHIK</span>
         <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
-        <span>{dateTime || "LOADING..."}</span>
+        <span>{dateTime}</span>
       </nav>
 
       {/* Hero Content Area - Takes up remaining screen space, flex column layout */}
