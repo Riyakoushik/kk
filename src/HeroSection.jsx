@@ -30,6 +30,33 @@ const HeroSection = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Close menu when clicking outside of it
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleClickOutside = (event) => {
+      const menuBox = menuRef.current?.querySelector(".menu");
+      // Close if click is outside the menu box and not on the MENU toggle button itself
+      if (menuBox && !menuBox.contains(event.target) && !event.target.closest("button")) {
+        handleClose();
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        handleClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMenuOpen]);
+
   useEffect(() => {
     if (!isMenuOpen || !menuRef.current) return;
 
@@ -287,10 +314,17 @@ const HeroSection = () => {
               onClick={handleClose}
               className="close-btn text-[28px] text-white/75 hover:text-white transition-colors flex items-center justify-center h-auto w-full cursor-pointer focus:outline-none"
             >
-              <ion-icon name="close-sharp"></ion-icon>
+              {/* Fallback to clean inline SVG in case CDN is blocked */}
+              <svg className="w-6 h-6 stroke-current" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
             </button>
             <div className="logo text-[24px] text-white/70 mb-6 flex items-center justify-center">
-              <ion-icon name="funnel-sharp"></ion-icon>
+              {/* Fallback to clean inline SVG in case CDN is blocked */}
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path>
+              </svg>
             </div>
           </div>
         </div>
