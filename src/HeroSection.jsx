@@ -18,8 +18,10 @@ const getFormattedDateTime = () => {
 const HeroSection = () => {
   // Initialize state directly with the formatted time to prevent layout shift on reload
   const [dateTime, setDateTime] = useState(getFormattedDateTime);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const timer = setInterval(() => {
       setDateTime(getFormattedDateTime());
     }, 1000);
@@ -31,7 +33,10 @@ const HeroSection = () => {
     <div className="bg-[#000000] h-screen w-full flex flex-col items-center justify-start text-white overflow-hidden relative font-roboto pb-6">
       
       {/* Navigation Bar - Fixed absolute at top, centered container aligning with the image/content below */}
-      <nav className="absolute top-0 left-0 w-full z-50 bg-black/85 backdrop-blur-md py-6">
+      <nav 
+        className={`absolute top-0 left-0 w-full z-50 bg-black/85 backdrop-blur-md py-6 ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}
+        style={{ transition: mounted ? "transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms ease" : "transform 800ms cubic-bezier(0.23, 1, 0.32, 1), opacity 800ms ease" }}
+      >
         <div className="w-[95%] max-w-[1600px] mx-auto flex justify-between items-center text-[18px] font-light text-white uppercase tracking-wider">
           <span>THALARI KOUSHIK</span>
           <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
@@ -45,13 +50,23 @@ const HeroSection = () => {
         {/* Hero Text - Font Bebas Neue, 400 weight, 0.5px letter-spacing, uppercase, white, centered.
             Uses a mathematically tuned clamp to align perfectly with the expanded 1600px container width
             without horizontal or vertical overflow. */}
-        <h1 className="font-bebas text-[clamp(100px,min(18.5vw,30vh),280px)] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px] w-[95%] max-w-[1600px]">
+        <h1 
+          className={`font-bebas text-[clamp(100px,min(18.5vw,30vh),280px)] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px] w-[95%] max-w-[1600px] ${mounted ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-[0.98]'}`}
+          style={{ transition: mounted ? "transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms ease" : "transform 1000ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 1000ms ease 100ms" }}
+        >
           THALARI KOUSHIK
         </h1>
 
         {/* Image Container - Stretches wide to 95% (max 1600px) like the text, but height is constrained
             by flex-1 min-h-0 to guarantee no vertical scrolling. */}
-        <div className="w-[95%] max-w-[1600px] flex-1 min-h-0 rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(255,255,255,0.15)] border border-white/20 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.2)] hover:border-white/30">
+        <div 
+          className={`w-[95%] max-w-[1600px] flex-1 min-h-0 rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(255,255,255,0.15)] border border-white/20 hover:shadow-[0_0_35px_rgba(255,255,255,0.2)] hover:border-white/30 active:scale-[0.99] ${mounted ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-12 opacity-0 scale-[0.96]'}`}
+          style={{ 
+            transition: mounted 
+              ? "transform 250ms cubic-bezier(0.23, 1, 0.32, 1), opacity 250ms ease, border-color 200ms ease, box-shadow 200ms ease" 
+              : "transform 1000ms cubic-bezier(0.23, 1, 0.32, 1) 300ms, opacity 1000ms ease 300ms" 
+          }}
+        >
           <img
             src={heroForDesktop}
             alt="Hero for Desktop"
