@@ -30,15 +30,17 @@ const HeroSection = () => {
   return (
     <div className="bg-[#000000] h-screen w-full flex flex-col items-center justify-start text-white overflow-hidden relative font-roboto pb-6">
       
-      {/* Navigation Bar - Fixed absolute at top, 100% width, font size 18px, white color, static */}
-      <nav className="absolute top-0 left-0 w-full flex justify-between items-center px-9 py-6 z-50 text-[18px] font-light text-white uppercase tracking-wider bg-black/85 backdrop-blur-md">
-        <span>THALARI KOUSHIK</span>
-        <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
-        <span>{dateTime}</span>
+      {/* Navigation Bar - Fixed absolute at top, centered container aligning with the image/content below */}
+      <nav className="absolute top-0 left-0 w-full z-50 bg-black/85 backdrop-blur-md py-6">
+        <div className="w-[95%] max-w-[1400px] mx-auto flex justify-between items-center text-[18px] font-light text-white uppercase tracking-wider">
+          <span>THALARI KOUSHIK</span>
+          <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
+          <span>{dateTime}</span>
+        </div>
       </nav>
 
       {/* Hero Content Area - Takes up remaining screen space, flex column layout */}
-      <div className="flex flex-col items-center justify-center pt-24 px-4 w-full h-full min-h-0 z-10 box-border">
+      <div className="flex flex-col items-center justify-center pt-24 w-full h-full min-h-0 z-10 box-border">
         
         {/* Hero Text - Font Bebas Neue, 400 weight, 0.5px letter-spacing, uppercase, white, centered.
             Uses vh-clamped font size to scale down if the screen is short, preventing scroll. */}
