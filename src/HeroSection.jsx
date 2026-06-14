@@ -42,7 +42,7 @@ const HeroSection = () => {
         
         {/* Hero Text - Font Bebas Neue, 400 weight, 0.5px letter-spacing, uppercase, white, centered.
             Uses vh-clamped font size to scale down if the screen is short, preventing scroll. */}
-        <h1 className="font-bebas text-[clamp(60px,18vh,280px)] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px]">
+        <h1 className="font-bebas text-[clamp(80px,24vh,380px)] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px]">
           THALARI KOUSHIK
         </h1>
 
