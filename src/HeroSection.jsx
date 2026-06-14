@@ -310,14 +310,14 @@ const HeroSection = () => {
       </div>
 
       {/* Intro Overlay Text "THALARI KOUSHIK" - positioned over the viewport */}
-      <div className="banner-intro-text-container absolute top-1/2 -translate-y-1/2 w-full flex gap-2 md:gap-4 z-20 pointer-events-none font-bodoni">
+      <div className="banner-intro-text-container absolute top-1/2 -translate-y-1/2 w-full flex gap-2 md:gap-4 z-20 pointer-events-none font-bebas">
         <div className="banner-intro-text flex-1 flex justify-end">
-          <h1 className="text-[clamp(3.5rem,10vw,10rem)] leading-[0.9] font-black italic text-[#ffffff] tracking-tight">
+          <h1 className="text-[clamp(3.5rem,10vw,12rem)] leading-[0.9] font-normal uppercase text-[#ffffff] tracking-[0.5px]">
             THALARI
           </h1>
         </div>
         <div className="banner-intro-text flex-1 flex justify-start">
-          <h1 className="text-[clamp(3.5rem,10vw,10rem)] leading-[0.9] font-black italic text-[#ffffff] tracking-tight">
+          <h1 className="text-[clamp(3.5rem,10vw,12rem)] leading-[0.9] font-normal uppercase text-[#ffffff] tracking-[0.5px]">
             KOUSHIK
           </h1>
         </div>
