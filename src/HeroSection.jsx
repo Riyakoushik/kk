@@ -5,11 +5,11 @@ const HeroSection = () => {
   return (
     <div className="bg-[#000000] h-screen w-full flex flex-col items-center justify-start text-white overflow-hidden relative font-roboto pb-6">
       
-      {/* Navigation Bar - Fixed absolute at top, 100% width */}
-      <nav className="absolute top-0 left-0 w-full flex justify-between items-center px-9 py-6 z-50 text-[12px] font-light text-[#A0A0A0] uppercase tracking-wider bg-black/85 backdrop-blur-md">
-        <span className="cursor-pointer hover:text-white transition-colors duration-200">THALARI KOUSHIK</span>
+      {/* Navigation Bar - Fixed absolute at top, 100% width, font size 18px, white color, static (no hover animations) */}
+      <nav className="absolute top-0 left-0 w-full flex justify-between items-center px-9 py-6 z-50 text-[18px] font-light text-white uppercase tracking-wider bg-black/85 backdrop-blur-md">
+        <span>THALARI KOUSHIK</span>
         <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
-        <span className="cursor-pointer hover:text-white transition-colors duration-200">CONTACT ME</span>
+        <span>CONTACT ME</span>
       </nav>
 
       {/* Hero Content Area - Takes up remaining screen space, flex column layout */}
