@@ -87,6 +87,20 @@ const Gallery = () => {
                 opacity: 0,
                 x: 50,
             })
+            .to({}, { duration: 0.4 }, "+=0")
+            .to("#gallery-third", {
+                width: "40rem",
+                height: "18rem",
+                borderRadius: "90px",
+                transform: "translate(-50%, -50%)",
+            }, 'd')
+            .to("#gallery-third img", {
+                transform: "scale(1.3)",
+            }, 'd')
+            .to("#gallery-third .gallery-topText h4, #gallery-third .gallery-topText h3, #gallery-third .gallery-bottomText h3", {
+                opacity: 0,
+                x: -50,
+            }, 'd')
             .to({}, { duration: 0.4 }, "+=0");
 
         // Clean up function
