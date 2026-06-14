@@ -1,5 +1,6 @@
 import './App.css'
 import { Agentation } from 'agentation'
+import heroForDesktop from './assets/herofordestop.png'
 
 function App() {
   return (
@@ -12,6 +13,10 @@ function App() {
 
       <div className="main-title">
         Thalari Koushik
+      </div>
+
+      <div className="image-placeholder">
+        <img src={heroForDesktop} alt="Hero for Desktop" className="hero-img" />
       </div>
 
       {import.meta.env.DEV && <Agentation />}
