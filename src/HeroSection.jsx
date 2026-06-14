@@ -43,8 +43,9 @@ const HeroSection = () => {
       <div className="flex flex-col items-center justify-center pt-24 w-full h-full min-h-0 z-10 box-border">
         
         {/* Hero Text - Font Bebas Neue, 400 weight, 0.5px letter-spacing, uppercase, white, centered.
-            Uses vh-clamped font size to scale down if the screen is short, preventing scroll. */}
-        <h1 className="font-bebas text-[clamp(100px,30vh,480px)] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px]">
+            Uses a mathematically tuned clamp to align perfectly with the 1400px container width
+            without horizontal or vertical overflow. */}
+        <h1 className="font-bebas text-[clamp(80px,min(16.6vw,28vh),232px)] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px] w-[95%] max-w-[1400px]">
           THALARI KOUSHIK
         </h1>
 
