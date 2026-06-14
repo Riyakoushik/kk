@@ -1,10 +1,12 @@
-import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useRef } from 'react';
+
 import "./footertitle.css";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const FooterTitle = () => {
     const ftConRef = useRef(null);
@@ -12,48 +14,77 @@ const FooterTitle = () => {
     useGSAP(() => {
         if (!ftConRef.current) return;
 
-        const innerChars = ftConRef.current.querySelectorAll(".ftCharInner");
+        // Get the original HTML before splitting
+        const originalHTML = ftConRef.current.querySelector(".footer-title h1").innerHTML;
+
+        // Create split - exclude the sub element from being split
+        const split = new SplitText(".footer-title h1", {
+            type: "chars",
+            charsClass: "ftChar",
+            // Exclude the <sub> element from being split
+            exclude: "sub"
+        });
+
+        // Wrap each character in a span for animation
+        split.chars.forEach(char => {
+            char.innerHTML = `<span>${char.innerHTML}</span>`;
+        });
+
+        const innerChars = split.chars.map(c => c.querySelector("span")).filter(Boolean);
+
+        // Handle the sub element separately
+        const sub = ftConRef.current.querySelector(".footer-title sub");
+        if (sub) {
+            sub.innerHTML = `<span>${sub.innerHTML}</span>`;
+            const subSpan = sub.querySelector("span");
+
+            // Add to innerChars array
+            innerChars.push(subSpan);
+        }
 
         // Initial state - start from left (-120%)
         gsap.set(innerChars, { x: "-120%" });
 
-        // Animation - move to normal position (0%)
+        // Animation - move to normal position
         gsap.to(innerChars, {
             x: "0%",
-            stagger: 0.02,
+            stagger: 0.02, // Add stagger for character-by-character reveal
             ease: "power3.out",
             scrollTrigger: {
                 trigger: ftConRef.current,
                 start: "top 90%",
                 end: "top 80%",
                 scrub: true,
+                // markers: true
             }
         });
+
+        // Cleanup - revert the split and restore original HTML
+        return () => {
+            split.revert();
+            // Restore the original HTML with sub element
+            ftConRef.current.querySelector(".footer-title h1").innerHTML = originalHTML;
+        };
+
     }, { scope: ftConRef });
 
-    const name = "THALARI KOUSHIK";
-
     return (
-        <section ref={ftConRef} className='relative z-1 w-full h-[35vh] md:h-[40vh] border-t border-[#c4c1b9]/20 font-manrope bg-black overflow-hidden flex flex-col justify-between py-8'>
-            <div className='w-full max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center px-6 md:px-12 text-[#b1a696] text-[12px] uppercase tracking-wider gap-4'>
-                <p>
-                    BUILD BY THALARI KOUSHIK
+        <section ref={ftConRef} className='relative z-1 w-screen h-[40vh] border-1 border-t-[#c4c1b9]'>
+            <div className='w-full flex justify-between items-center px-6 mt-8'>
+                <p className='text-[#b1a696] text-[0.7rem]'>
+                    BUID BY THALARI KOUSHIK
                 </p>
-                <p className="flex gap-4">
-                    <span>This website is using <a href="#" className='text-[#f2ede5] hover:underline'>cookies</a></span>
-                    <span>All rights reserved © <a href="#" className='text-[#f2ede5] hover:underline'>2026</a></span>
+                <p className='text-[#b1a696] text-[0.7rem]'>
+                    This website is using <a href="#" className='text-[#f2ede5]'>cookies</a>
+                </p>
+                <p className='text-[#b1a696] text-[0.7rem]'>
+                    All rights reserved © <a href="#" className='text-[#f2ede5]'>2025</a>
                 </p>
             </div>
 
-            <div className='footer-title w-full text-center mt-auto mb-4 select-none'>
-                <h1 className='text-[10vw] font-bold font-bebas text-[#f4efe7] leading-none tracking-tight flex justify-center overflow-hidden w-full'>
-                    {name.split("").map((char, index) => (
-                        <span key={index} className="ftChar inline-block overflow-hidden relative">
-                            <span className="ftCharInner inline-block will-change-transform">
-                                {char === " " ? "\u00A0" : char}
-                            </span>
-                        </span>
-                    ))}
+            <div className='footer-title w-full text-center'>
+                <h1 className='text-[10vw] font-bold'>
+                    THALARI KOUSHIK
                 </h1>
             </div>
         </section>

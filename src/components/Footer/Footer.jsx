@@ -3,34 +3,24 @@ import MarqueeText from '../Marquee/MarqueeText';
 
 const Footer = () => {
     return (
-        <section className='w-full h-auto px-6 md:px-12 mt-12 pb-16 font-manrope bg-black'>
-            <div className="max-w-[1600px] mx-auto">
-                <div>
-                    <MarqueeText />
+        <section className='w-screen h-auto px-6 mt-10 pb-16'>
+            <div>
+                <MarqueeText />
+            </div>
+
+            <div className="w-full flex justify-between items-center mt-20">
+                <div className="flex justify-center items-center gap-1">
+                    <div className='border-[1px] border-[#c4c1b9] rounded-full p-3 text-[#f2ede5]'><FaInstagram className="text-xl" /></div>
+                    <div className='border-[1px] border-[#c4c1b9] rounded-full p-3 text-[#f2ede5]'><FaLinkedin className="text-xl" /></div>
+                    <div className='border-[1px] border-[#c4c1b9] rounded-full p-3 text-[#f2ede5]'><FaGithub className="text-xl" /></div>
+                    <div className='border-[1px] border-[#c4c1b9] rounded-full p-3 text-[#f2ede5]'><FaEnvelope className="text-xl" /></div>
                 </div>
 
-                <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 mt-16">
-                    <div className="flex justify-center items-center gap-3">
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className='border border-[#c4c1b9]/40 hover:border-[#c4c1b9] hover:bg-white/5 rounded-full p-4 text-[#f2ede5] transition-all active:scale-95 flex items-center justify-center' aria-label="Instagram">
-                            <FaInstagram className="text-xl" />
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className='border border-[#c4c1b9]/40 hover:border-[#c4c1b9] hover:bg-white/5 rounded-full p-4 text-[#f2ede5] transition-all active:scale-95 flex items-center justify-center' aria-label="LinkedIn">
-                            <FaLinkedin className="text-xl" />
-                        </a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className='border border-[#c4c1b9]/40 hover:border-[#c4c1b9] hover:bg-white/5 rounded-full p-4 text-[#f2ede5] transition-all active:scale-95 flex items-center justify-center' aria-label="GitHub">
-                            <FaGithub className="text-xl" />
-                        </a>
-                        <a href="mailto:email@example.com" className='border border-[#c4c1b9]/40 hover:border-[#c4c1b9] hover:bg-white/5 rounded-full p-4 text-[#f2ede5] transition-all active:scale-95 flex items-center justify-center' aria-label="Email">
-                            <FaEnvelope className="text-xl" />
-                        </a>
-                    </div>
-
-                    <div>
-                        <p className="text-[14px] text-[#b1a696] text-center md:text-right italic leading-relaxed">
-                            "If you don't take risks, you can't create a future."<br />
-                            <span className="text-[12px] opacity-80 not-italic">— Monkey D. Luffy</span>
-                        </p>
-                    </div>
+                <div>
+                    <p className="text-[0.8rem] text-[#b1a696] text-right italic">
+                        "If you don't take risks, you can't create a future."<br />
+                        — Monkey D. Luffy
+                    </p>
                 </div>
             </div>
         </section>

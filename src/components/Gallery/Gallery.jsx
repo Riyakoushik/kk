@@ -15,6 +15,8 @@ const Gallery = () => {
     const pageRef = useRef(null);
 
     useEffect(() => {
+
+        // document.fonts.ready.then(() => {
         // Create new timeline
         const tl4 = gsap.timeline({
             scrollTrigger: {
@@ -98,7 +100,7 @@ const Gallery = () => {
         const capsules = [];
         for (let i = 1; i <= quantity; i++) {
             capsules.push(
-                <h3 key={i} style={{ "--index": i }} className='tracking-tighter font-bebas'>
+                <h3 key={i} style={{ "--index": i }} className='tracking-tighter'>
                     Built Projects For Fun
                 </h3>
             );
@@ -120,12 +122,12 @@ const Gallery = () => {
             <div className="gallery-background">
                 <img src={gbg1} alt="Classic Capsule" />
                 <div className="gallery-topText">
-                    <h4 className="font-bebas">ClassicCapsule®</h4>
-                    <h3 className="font-bebas">(Scroll)</h3>
+                    <h4>ClassicCapsule®</h4>
+                    <h3>(Scroll)</h3>
                 </div>
-                <div className="gallery-bottomText font-manrope">
+                <div className="gallery-bottomText">
                     <div className='w-full flex justify-center items-center gap-0'>
-                        <BsFillPlusCircleFill className='w-8 h-8 text-[#b1a696] flex-shrink-0' />
+                        <BsFillPlusCircleFill className='w-8 h-8 text-[#b1a696]' />
                         <h3>Classic Capsule® boasts refined aesthetics and a modern <br /> interior, creating an intimate retreat in a desert landscape</h3>
                     </div>
                     <div className="relative z-9 w-50 h-[0.1rem] bg-[#4f4b48]">
@@ -137,12 +139,12 @@ const Gallery = () => {
             <div id="gallery-second" className="gallery-background2">
                 <img src={gbg2} alt="Terrace Capsule" />
                 <div className="gallery-topText">
-                    <h4 className="font-bebas">Terrace Capsule®</h4>
-                    <h3 className="font-bebas">(Scroll)</h3>
+                    <h4>Terrace Capsule®</h4>
+                    <h3>(Scroll)</h3>
                 </div>
-                <div className="gallery-bottomText font-manrope">
+                <div className="gallery-bottomText">
                     <div className='w-full flex justify-center items-center gap-0'>
-                        <BsFillPlusCircleFill className='w-8 h-8 text-[#b1a696] flex-shrink-0' />
+                        <BsFillPlusCircleFill className='w-8 h-8 text-[#b1a696]' />
                         <h3>Classic Capsule® boasts refined aesthetics and a modern <br /> interior, creating an intimate retreat in a desert landscape</h3>
                     </div>
                     <div className="relative z-9 w-50 h-[0.1rem] bg-[#4f4b48]">
@@ -154,12 +156,12 @@ const Gallery = () => {
             <div id="gallery-third" className="gallery-background2">
                 <img src={gbg3} alt="Desert Capsule" />
                 <div className="gallery-topText">
-                    <h4 className="font-bebas">Desert Capsule®</h4>
-                    <h3 className="font-bebas">(Scroll)</h3>
+                    <h4>Desert Capsule®</h4>
+                    <h3>(Scroll)</h3>
                 </div>
-                <div className="gallery-bottomText font-manrope">
+                <div className="gallery-bottomText">
                     <div className='w-full flex justify-center items-center gap-0'>
-                        <BsFillPlusCircleFill className='w-8 h-8 text-[#b1a696] flex-shrink-0' />
+                        <BsFillPlusCircleFill className='w-8 h-8 text-[#b1a696]' />
                         <h3>Classic Capsule® boasts refined aesthetics and a modern <br /> interior, creating an intimate retreat in a desert landscape</h3>
                     </div>
                     <div className="relative z-9 w-50 h-[0.1rem] bg-[#4f4b48]">

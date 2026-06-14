@@ -27,56 +27,54 @@ const Feedback = () => {
     const progressWidth = feedbackReviewLG[index][3];
 
     return (
-        <section className='w-full min-h-screen p-8 md:p-24 flex flex-col justify-center items-center bg-black font-manrope select-none'>
-            <div className='w-full max-w-[1600px] mx-auto text-left'>
-                <p className='text-[14px] font-bold text-[#eae5dd] uppercase tracking-wider text-left'>
+        <section className='w-screen h-dvh p-8 flex flex-col justify-center items-center bg-black'>
+            <div className='w-full text-left'>
+                <p className='text-[.7rem] font-bold text-[#eae5dd] activities-subtitle text-left'>
                     Do people like us?
                 </p>
 
-                <div className="min-h-[220px] md:min-h-[300px] flex items-center mt-6">
-                    <h1 className='text-[#f4efe7] text-4xl md:text-7xl font-bold leading-tight tracking-tight uppercase'>
+                <div>
+                    <h1 className='text-[#f4efe7] text-7xl mt-4 mb-6'>
                         {feedbackH1LG[index].map((line, i) => (
-                            <span key={i} className="block">
-                                {line}
+                            <span key={i}>
+                                {line}<br />
                             </span>
                         ))}
                     </h1>
                 </div>
 
-                <div className='flex items-center gap-4 mt-8'>
+                <div className='flex items-center gap-4 mt-12'>
                     <img
                         src={reviewImages[feedbackReviewLG[index][2]]}
                         alt="review img"
-                        className='w-16 h-16 rounded-full object-cover border border-white/10'
+                        className='w-[4.5vw] rounded-4xl'
                     />
-                    <p className="text-[#aca192] text-[14px] leading-relaxed uppercase tracking-wider">
-                        <strong>{feedbackReviewLG[index][0]}</strong><br />
-                        <span className="text-[12px] opacity-70">{feedbackReviewLG[index][1]}</span>
+                    <p className="text-[#aca192] text-[0.7rem]">
+                        {feedbackReviewLG[index][0]}<br />
+                        ({feedbackReviewLG[index][1]})
                     </p>
                 </div>
 
-                <div className="flex justify-between items-center mt-12 w-full">
-                    <div className="flex gap-2">
+                <div className="flex justify-between items-center mt-14">
+                    <div className="flex gap-1">
                         <button
                             onClick={handlePrev}
-                            className='border border-[#aaa090] p-2 hover:bg-[#aaa090]/10 rounded-full cursor-pointer transition-colors active:scale-95 flex items-center justify-center'
-                            aria-label="Previous review"
+                            className='border-[1px] p-1 border-[#aaa090] hover:bg-[#aaa090] rounded-4xl cursor-pointer'
                         >
-                            <IoMdArrowBack className="text-[#f1ece4] w-6 h-6" />
+                            <IoMdArrowBack className="text-[#f1ece4] w-[2vw] h-[3.4vh]" />
                         </button>
 
                         <button
                             onClick={handleNext}
-                            className='border border-[#aaa090] p-2 hover:bg-[#aaa090]/10 rounded-full cursor-pointer transition-colors active:scale-95 flex items-center justify-center'
-                            aria-label="Next review"
+                            className='border-[1px] p-1 border-[#aaa090] hover:bg-[#aaa090] rounded-4xl cursor-pointer'
                         >
-                            <IoMdArrowForward className="text-[#f1ece4] w-6 h-6" />
+                            <IoMdArrowForward className="text-[#f1ece4] w-[2vw] h-[3.4vh]" />
                         </button>
                     </div>
 
-                    <div className="relative w-48 md:w-72 h-[1px] bg-[#4f4b48]">
+                    <div className="relative z-9 w-70 h-[0.1rem] bg-[#4f4b48]">
                         <div
-                            className="progress-line absolute bg-[#f4efe7] h-[1px] top-1/2 -translate-y-1/2 left-0 transition-all duration-500 ease-out"
+                            className="progress-line absolute z-10 bg-[#f4efe7] h-[0.1rem] top-1/2 -translate-y-1/2 left-0"
                             style={{ width: progressWidth }}
                         ></div>
                     </div>

@@ -17,7 +17,7 @@ const MarqueeText = () => {
                 animationRef.current.kill();
             }
 
-            const duration = 15; // Speed adjustment (lower = faster)
+            const duration = 10; // Fixed duration (lower = faster)
             const targets = containerRef.current.querySelectorAll(".marquee-text-marquee");
             const stars = containerRef.current.querySelectorAll(".star-rotate");
 
@@ -88,15 +88,12 @@ const MarqueeText = () => {
     // Create multiple marquee items
     const marqueeItems = Array(6).fill(null).map((_, index) => (
         <div key={index} className="marquee-text-marquee">
-            <h1 className="font-bebas tracking-wide uppercase">
-                Wanna collaborate? Or just curious how I'm building this?
-                <span className='star-rotate inline-block ml-4 text-[#aaa090]'>*</span>
-            </h1>
+            <h1>Wanna collaborate? Or just curious how I'm building this?<span className='star-rotate'>*</span></h1>
         </div>
     ));
 
     return (
-        <div ref={containerRef} className="marquee-text-container overflow-hidden py-4 border-y border-white/10 select-none">
+        <div ref={containerRef} className="marquee-text-container">
             <div className="marquee-text-move">
                 {marqueeItems}
             </div>
