@@ -71,14 +71,14 @@ const FooterTitle = () => {
     return (
         <section ref={ftConRef} className='relative z-1 w-screen h-[40vh] border-1 border-t-[#c4c1b9]'>
             <div className='w-full flex justify-between items-center px-6 mt-8'>
-                <p className='text-[#b1a696] text-[0.7rem]'>
+                <p className='text-white text-[0.7rem]'>
                     BUID BY THALARI KOUSHIK
                 </p>
-                <p className='text-[#b1a696] text-[0.7rem]'>
-                    This website is using <a href="#" className='text-[#f2ede5]'>cookies</a>
+                <p className='text-white text-[0.7rem]'>
+                    This website is using <a href="#" className='text-white'>cookies</a>
                 </p>
-                <p className='text-[#b1a696] text-[0.7rem]'>
-                    All rights reserved © <a href="#" className='text-[#f2ede5]'>2025</a>
+                <p className='text-white text-[0.7rem]'>
+                    All rights reserved © <a href="#" className='text-white'>2025</a>
                 </p>
             </div>
 
