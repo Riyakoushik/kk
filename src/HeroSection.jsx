@@ -16,12 +16,12 @@ const HeroSection = () => {
       <div className="flex flex-col items-center justify-center pt-32 pb-16 px-4 w-full z-10">
         
         {/* Hero Text - Font Bebas Neue, 400 weight, 0.5px letter-spacing, uppercase, white, centered */}
-        <h1 className="font-bebas text-9xl sm:text-[240px] md:text-[290px] lg:text-[320px] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px]">
+        <h1 className="font-bebas text-8xl sm:text-[220px] md:text-[260px] lg:text-[280px] font-normal uppercase tracking-[0.5px] text-white text-center leading-none">
           THALARI KOUSHIK
         </h1>
 
-        {/* Image Container - 95% wide, max 1400px, 16px rounded corners, 25px white glow shadow, border, centered */}
-        <div className="w-[95%] max-w-[1400px] rounded-[16px] overflow-hidden shadow-[0_0_25px_rgba(255,255,255,0.15)] border border-white/20 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.2)] hover:border-white/30">
+        {/* Image Container - 95% wide, max 1400px, rounded-2xl, white glow shadow, border, mt-4 (16px gap) */}
+        <div className="w-[95%] max-w-[1400px] mt-4 rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(255,255,255,0.15)] border border-white/20 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.2)] hover:border-white/30">
           <img
             src={heroForDesktop}
             alt="Hero for Desktop"
