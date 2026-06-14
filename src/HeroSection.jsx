@@ -20,8 +20,8 @@ const HeroSection = () => {
           THALARI KOUSHIK
         </h1>
 
-        {/* Image Container - Reduced size to w-[50%], max 700px, rounded-2xl, white glow shadow, border, mt-4 (16px gap) */}
-        <div className="w-[50%] max-w-[700px] mt-4 rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(255,255,255,0.15)] border border-white/20 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.2)] hover:border-white/30">
+        {/* Image Container - Increased size to w-[70%], max 900px, rounded-2xl, white glow shadow, border, mt-4 (16px gap) */}
+        <div className="w-[70%] max-w-[900px] mt-4 rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(255,255,255,0.15)] border border-white/20 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.2)] hover:border-white/30">
           <img
             src={heroForDesktop}
             alt="Hero for Desktop"
