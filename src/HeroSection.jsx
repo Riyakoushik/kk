@@ -15,8 +15,8 @@ const HeroSection = () => {
       {/* Hero Content Area - Centered layout with top spacing to clear fixed nav */}
       <div className="flex flex-col items-center justify-center pt-32 pb-16 px-4 w-full z-10">
         
-        {/* Hero Text - Font Bebas Neue, 900 weight, 0.5px letter-spacing, uppercase, white, centered */}
-        <h1 className="font-bebas text-8xl sm:text-[220px] md:text-[260px] lg:text-[280px] font-black uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px]">
+        {/* Hero Text - Font Bebas Neue, 400 weight, 0.5px letter-spacing, uppercase, white, centered */}
+        <h1 className="font-bebas text-9xl sm:text-[240px] md:text-[290px] lg:text-[320px] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px]">
           THALARI KOUSHIK
         </h1>
 
