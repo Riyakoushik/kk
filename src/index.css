@@ -47,6 +47,12 @@
   --font-bodoni: "Bodoni Moda", serif;
 }
 
+html,
+body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
 /* Scoped Menu Styles from costom/styles.css */
 .menu-container {
   position: fixed;
