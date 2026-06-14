@@ -44,6 +44,7 @@
   --font-bebas: "Bebas Neue", sans-serif;
   --font-roboto: "Roboto", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
+  --font-bodoni: "Bodoni Moda", serif;
 }
 
 /* Scoped Menu Styles from costom/styles.css */
@@ -294,4 +295,51 @@
   .menu-sub-item {
     padding: 1em 0;
   }
+}
+
+/* Scroll Animation Styles */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/Manrope-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/Manrope-Bold.ttf') format('truetype');
+}
+
+.scroll-animation-wrapper {
+  font-family: "Manrope", sans-serif;
+}
+
+.animate-text {
+  position: relative;
+  color: #3a3a3a;
+  --clip-value: 100%;
+}
+
+.animate-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #ffffff;
+  clip-path: inset(0 0 var(--clip-value) 0);
+  will-change: clip-path;
+}
+
+/* Bodoni Moda Font Styles */
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url('./assets/BodoniModa-Italic.ttf') format('truetype');
 }
