@@ -32,7 +32,7 @@ const HeroSection = () => {
       
       {/* Navigation Bar - Fixed absolute at top, centered container aligning with the image/content below */}
       <nav className="absolute top-0 left-0 w-full z-50 bg-black/85 backdrop-blur-md py-6">
-        <div className="w-[95%] max-w-[1400px] mx-auto flex justify-between items-center text-[18px] font-light text-white uppercase tracking-wider">
+        <div className="w-[95%] max-w-[1600px] mx-auto flex justify-between items-center text-[18px] font-light text-white uppercase tracking-wider">
           <span>THALARI KOUSHIK</span>
           <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
           <span>{dateTime}</span>
@@ -43,15 +43,15 @@ const HeroSection = () => {
       <div className="flex flex-col items-center justify-center pt-24 w-full h-full min-h-0 z-10 box-border">
         
         {/* Hero Text - Font Bebas Neue, 400 weight, 0.5px letter-spacing, uppercase, white, centered.
-            Uses a mathematically tuned clamp to align perfectly with the 1400px container width
+            Uses a mathematically tuned clamp to align perfectly with the expanded 1600px container width
             without horizontal or vertical overflow. */}
-        <h1 className="font-bebas text-[clamp(80px,min(16.6vw,28vh),232px)] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px] w-[95%] max-w-[1400px]">
+        <h1 className="font-bebas text-[clamp(100px,min(18.5vw,30vh),280px)] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px] w-[95%] max-w-[1600px]">
           THALARI KOUSHIK
         </h1>
 
-        {/* Image Container - Stretches wide to 95% (max 1400px) like the text, but height is constrained
+        {/* Image Container - Stretches wide to 95% (max 1600px) like the text, but height is constrained
             by flex-1 min-h-0 to guarantee no vertical scrolling. */}
-        <div className="w-[95%] max-w-[1400px] flex-1 min-h-0 rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(255,255,255,0.15)] border border-white/20 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.2)] hover:border-white/30">
+        <div className="w-[95%] max-w-[1600px] flex-1 min-h-0 rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(255,255,255,0.15)] border border-white/20 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.2)] hover:border-white/30">
           <img
             src={heroForDesktop}
             alt="Hero for Desktop"
