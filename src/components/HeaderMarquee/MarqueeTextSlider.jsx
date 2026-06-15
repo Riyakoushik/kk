@@ -85,7 +85,6 @@ const MarqueeTextSlider = () => {
     // Create multiple marquee items
     const marqueeItems = Array(6).fill(null).map((_, index) => (
         <div key={index} className="marquee-text-marquee">
-            <h1>Why koushik need to build all of this®?<span className='star-rotate'>*</span></h1>
         </div>
     ));
 
