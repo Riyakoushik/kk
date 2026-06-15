@@ -32,8 +32,8 @@ const PropertyShowcase = () => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ".sticky-cols",
-                start: "top 20%",
-                end: "+=90%",
+                start: "top top",
+                end: "+=200%",
                 pin: true,
                 scrub: 1,
                 // markers: true,
