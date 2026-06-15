@@ -26,27 +26,20 @@ const Gallery = () => {
         };
     }, []);
 
-    // Generate repeating elements
-    const generateCapsules = (quantity = 6) => {
-        const capsules = [];
-        for (let i = 1; i <= quantity; i++) {
-            capsules.push(
-                <h3 key={i} style={{ "--index": i }} className='tracking-tighter'>
-                    Why koushik need to build all of this®?*
-                </h3>
-            );
-        }
-        return capsules;
-    };
-
     return (
         <section className="gallery-page4" ref={pageRef}>
             <div className="gallery-slider">
-                <div
-                    className="gallery-box"
-                    style={{ "--time": "40s", "--quantity": 6 }}
-                >
-                    {generateCapsules(6)}
+                <div className="gallery-marquee-container">
+                    <div className="gallery-marquee-content">
+                        <h3>Why koushik need to build all of this®?*</h3>
+                        <h3>Why koushik need to build all of this®?*</h3>
+                        <h3>Why koushik need to build all of this®?*</h3>
+                    </div>
+                    <div className="gallery-marquee-content" aria-hidden="true">
+                        <h3>Why koushik need to build all of this®?*</h3>
+                        <h3>Why koushik need to build all of this®?*</h3>
+                        <h3>Why koushik need to build all of this®?*</h3>
+                    </div>
                 </div>
             </div>
 

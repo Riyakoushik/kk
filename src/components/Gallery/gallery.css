@@ -28,34 +28,40 @@
 }
 
 .gallery-page4 .gallery-slider {
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
     height: auto;
 }
 
-.gallery-slider .gallery-box {
-    position: relative;
-    min-width: calc(250rem * 6);
-    height: 15rem;
+.gallery-marquee-container {
     display: flex;
-    gap: 2rem;
+    overflow: hidden;
+    width: 100vw;
+    user-select: none;
 }
 
-.gallery-slider .gallery-box h3 {
+.gallery-marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    gap: 4rem;
+    padding-right: 4rem;
+    animation: scroll-marquee 25s linear infinite;
+    will-change: transform;
+}
+
+.gallery-marquee-content h3 {
     font-size: 10rem;
-    width: 250rem;
-    white-space: nowrap;
-    position: absolute;
     color: #f4efe7;
     font-weight: 600;
-    left: 100%;
-    animation: gallery-animate var(--time) linear infinite;
-    animation-delay: calc((var(--time) / var(--quantity) * (var(--index) - 1)) - var(--time));
+    white-space: nowrap;
 }
 
-@keyframes gallery-animate {
+@keyframes scroll-marquee {
+    from {
+        transform: translateX(0);
+    }
     to {
-        left: -250rem;
+        transform: translateX(-100%);
     }
 }
 
