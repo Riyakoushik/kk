@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import HeroSection from './HeroSection'
 import ScrollAnimationSection from './ScrollAnimationSection'
 import Gallery from './components/Gallery/Gallery'
-import MarqueeHeaderContainer from './components/HeaderMarquee/MarqueeHeaderContainer'
 import PropertyShowcase from './components/PropertyShowcase/PropertyShowcase'
 import ActivitiesGuide from './components/ActivitiesGuide/ActivitiesGuide'
 import { Agentation } from 'agentation'
@@ -52,7 +51,6 @@ function App() {
         [ SECTION DIVIDER - SPACER ]
       </div>
 
-      <MarqueeHeaderContainer />
       <PropertyShowcase />
       <ActivitiesGuide />
       {import.meta.env.DEV && <Agentation />}
