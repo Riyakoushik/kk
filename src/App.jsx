@@ -46,11 +46,6 @@ function App() {
       <ScrollAnimationSection />
       <Gallery />
       
-      {/* Temporary Black Screen Spacer between old and new sections */}
-      <div className="w-full h-screen bg-[#000000] relative z-10 flex items-center justify-center text-white/20 font-mono text-[14px]">
-        [ SECTION DIVIDER - SPACER ]
-      </div>
-
       <PropertyShowcase />
       <ActivitiesGuide />
       {import.meta.env.DEV && <Agentation />}
