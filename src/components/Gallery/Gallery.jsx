@@ -1,10 +1,30 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './gallery.css';
 
 import gbg1 from '../../assets/background1.png';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Gallery = () => {
     const pageRef = useRef(null);
+
+    useEffect(() => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".gallery-page4",
+                start: "top top",
+                end: "+=120%", // Pins the page to take about 2 seconds of average scroll effort
+                pin: true,
+                scrub: 1,
+            }
+        });
+
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+    }, []);
 
     // Generate repeating elements
     const generateCapsules = (quantity = 6) => {
