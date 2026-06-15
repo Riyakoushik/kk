@@ -12,7 +12,7 @@ const Gallery = () => {
         for (let i = 1; i <= quantity; i++) {
             capsules.push(
                 <h3 key={i} style={{ "--index": i }} className='tracking-tighter'>
-                    Built Projects For Fun
+                    Why koushik need to build all of this®?*
                 </h3>
             );
         }
