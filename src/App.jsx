@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import HeroSection from './HeroSection'
 import ScrollAnimationSection from './ScrollAnimationSection'
-import Gallery from './components/Gallery/Gallery'
+import ProjectsHover from './components/ProjectsHover/ProjectsHover'
+import Footer from './components/Footer/Footer'
 import { Agentation } from 'agentation'
 import Lenis from 'lenis'
 import gsap from 'gsap'
@@ -42,7 +43,8 @@ function App() {
     <>
       <HeroSection />
       <ScrollAnimationSection />
-      <Gallery />
+      <ProjectsHover />
+      <Footer />
       {import.meta.env.DEV && <Agentation />}
     </>
   )
