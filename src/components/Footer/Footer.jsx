@@ -96,8 +96,11 @@ const Footer = () => {
 
         {/* Footer Navigation Bar */}
         <div className="ft-nav-row">
-          <div className="ft-nav-logo">
-            THALARI KOUSHIK
+          <div className="ft-nav-logo" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '1.25rem', height: '1.25rem' }}>
+              <path d="M18.894 18.002H5.105c-.553 0-1-.448-1-1v-1c0-.552.447-1 1-1h13.789c.553 0 1 .448 1 1v1c0 .552-.447 1-1 1zm2.186-5.834l-2.025-6.425-4.055 3.328-3-6.07-3 6.07-4.055-3.328-2.025 6.425c-.171.543.084 1.135.594 1.378l7.975 3.804c.321.153.691.153 1.012 0l7.975-3.804c.51-.243.765-.835.594-1.378z"/>
+            </svg>
+            <span>THALARI KOUSHIK</span>
           </div>
 
           <div className="ft-nav-links">
