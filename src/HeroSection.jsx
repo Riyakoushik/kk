@@ -213,7 +213,7 @@ const HeroSection = ({ isLoaded }) => {
         className="absolute top-0 left-0 w-full z-50 bg-black/85 backdrop-blur-md py-6 translate-y-0 opacity-100"
       >
         <div className="w-[95%] max-w-[1600px] mx-auto flex justify-between items-center text-[18px] font-light text-white uppercase tracking-wider">
-          <span>THALARI KOUSHIK</span>
+          <span className="hidden md:inline">THALARI KOUSHIK</span>
           <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
           <div className="flex items-center gap-6">
             <span className="hidden sm:inline">{dateTime}</span>
