@@ -275,6 +275,32 @@
     width: 100%;
     justify-content: space-between;
   }
+
+  .ft-mobile-contact-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+
+  .ft-mobile-contact-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
 }
 
 /* Footer Marquee text slider */

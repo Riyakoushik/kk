@@ -68,12 +68,12 @@ const Footer = () => {
     <footer className="ft-section">
       <div className="ft-container">
 
-        {/* Clickable Marquee Text Slider */}
+        {/* Clickable Marquee Text Slider (Desktop only) */}
         <a 
           href={gmailComposeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="ft-marquee-container" 
+          className="ft-marquee-container hidden md:flex" 
           ref={marqueeContainerRef}
           aria-label="Contact Koushik by Email"
         >
@@ -87,6 +87,17 @@ const Footer = () => {
             <h3>WHY KOUSHIK NEED TO BUILD ALL OF THIS®?*</h3>
             <h3>WHY KOUSHIK NEED TO BUILD ALL OF THIS®?*</h3>
           </div>
+        </a>
+
+        {/* Mobile Contact Button (Visible on mobile only) */}
+        <a 
+          href={gmailComposeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ft-mobile-contact-btn md:hidden"
+          aria-label="Let's Talk by Email"
+        >
+          LET'S TALK <span style={{ marginLeft: '0.5rem', color: '#ff9f1c' }}>↗</span>
         </a>
 
         {/* Large Banner Image */}
