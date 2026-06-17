@@ -118,7 +118,12 @@ body {
 
 .menu-main .menu-bottom {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.75rem;
+  padding: 2rem 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 /* menu top */
@@ -205,23 +210,7 @@ body {
   color: #000;
 }
 
-/* menu bottom */
-.menu-sub-item {
-  width: 100%;
-  display: flex;
-  gap: 1em;
-  border-top: 1px solid rgba(255, 255, 255, 0.125);
-  padding: 1em 2em;
-}
-
-.menu-title {
-  flex: 1;
-}
-
-.menu-content {
-  flex: 4;
-  padding-left: 2em;
-}
+/* menu bottom sub-item definitions removed */
 
 .menu-content p {
   position: relative;
