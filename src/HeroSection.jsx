@@ -316,6 +316,7 @@ const HeroSection = ({ isLoaded }) => {
           <div className="menu-sidebar">
             <button 
               onClick={handleClose}
+              aria-label="Close menu"
               className="close-btn text-[28px] text-white/75 hover:text-white transition-colors flex items-center justify-center h-auto w-full cursor-pointer focus:outline-none"
             >
               <svg className="w-6 h-6 stroke-current" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
