@@ -280,9 +280,7 @@
   }
   
   .ft-legal-row {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: 1.5rem;
+    display: none !important;
   }
   
   .ft-legal-links {

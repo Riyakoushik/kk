@@ -152,8 +152,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Legal Rights Block */}
-        <div className="ft-legal-row">
+        {/* Legal Rights Block (Desktop only) */}
+        <div className="ft-legal-row hidden md:flex">
           <div className="ft-copyright">
             Copyright © 2026 THALARI KOUSHIK
           </div>
@@ -162,6 +162,11 @@ const Footer = () => {
             <a href="#terms" className="ft-legal-link">Terms of Use</a>
             <a href="#privacy" className="ft-legal-link">Privacy Policy</a>
           </div>
+        </div>
+
+        {/* Mobile Note (Visible on mobile only) */}
+        <div className="ft-mobile-love-note md:hidden text-center text-[12px] text-white/40 font-light mt-4 tracking-wider uppercase">
+          made with love and memory
         </div>
 
         {/* Custom cursor capsule button for marquee hover */}
