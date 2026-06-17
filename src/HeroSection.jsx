@@ -215,7 +215,7 @@ const HeroSection = ({ isLoaded }) => {
         <div className="w-[95%] max-w-[1600px] mx-auto flex justify-between items-center text-[18px] font-light text-white uppercase tracking-wider">
           <span className="hidden md:inline">THALARI KOUSHIK</span>
           <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 ml-auto md:ml-0">
             <span className="hidden sm:inline">{dateTime}</span>
             <button 
               onClick={() => setIsMenuOpen(true)}
