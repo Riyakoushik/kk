@@ -93,6 +93,7 @@ const ProjectsHover = () => {
       projectsList.addEventListener('mousemove', handleMouseMove);
       projectsList.addEventListener('mouseleave', handleMouseLeave);
 
+      const cleanups = [];
       projects.forEach((project, index) => {
         const handleMouseEnter = () => {
           gsap.to(projectThumbnail, {
@@ -111,15 +112,13 @@ const ProjectsHover = () => {
         };
 
         project.addEventListener('mouseenter', handleMouseEnter);
-
-        return () => {
-          project.removeEventListener('mouseenter', handleMouseEnter);
-        };
+        cleanups.push(() => project.removeEventListener('mouseenter', handleMouseEnter));
       });
 
       return () => {
         projectsList.removeEventListener('mousemove', handleMouseMove);
         projectsList.removeEventListener('mouseleave', handleMouseLeave);
+        cleanups.forEach(cleanup => cleanup());
       };
     }, container);
 
