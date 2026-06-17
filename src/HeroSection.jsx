@@ -271,16 +271,9 @@ const HeroSection = ({ isLoaded }) => {
                 <div className="menu-item">
                   <div className="menu-item-link">
                     <div className="bg-hover"></div>
-                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="split-target">resume</a>
+                    <a href="https://drive.google.com/file/d/1GMDRozMAPazkyNs1cyaFtNxC0nD_fB5I/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="split-target">resume</a>
                   </div>
                   <span className="split-target">view pdf</span>
-                </div>
-                <div className="menu-item">
-                  <div className="menu-item-link">
-                    <div className="bg-hover"></div>
-                    <a href="/resume.pdf" download="Thalari_Koushik_Resume.pdf" className="split-target">download resume</a>
-                  </div>
-                  <span className="split-target">get file</span>
                 </div>
                 <div className="menu-item">
                   <div className="menu-item-link">
