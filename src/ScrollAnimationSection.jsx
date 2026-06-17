@@ -4,12 +4,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import whatIDoSvg from "./assets/whatido.svg";
 import ImageTrail from "./components/ImageTrail/ImageTrail";
 
-import bg1 from "./assets/background1.png";
-import bg2 from "./assets/background2.png";
-import bg3 from "./assets/background3.png";
 import heroImage from "./assets/herofordestop.png";
 
-const trailImages = [bg1, bg2, bg3, heroImage, bg1, bg2, bg3, heroImage];
+const trailImages = [
+  'https://picsum.photos/id/287/300/300',
+  'https://picsum.photos/id/1001/300/300',
+  'https://picsum.photos/id/1025/300/300',
+  'https://picsum.photos/id/1026/300/300',
+  'https://picsum.photos/id/1028/300/300',
+  'https://picsum.photos/id/1029/300/300',
+  'https://picsum.photos/id/1030/300/300',
+  heroImage
+];
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -94,8 +100,7 @@ const ScrollAnimationSection = () => {
       {/* About Section */}
       <section className="about h-screen w-full flex items-center justify-center px-8 relative overflow-hidden bg-[#000000]">
         <h1 className="animate-text text-[clamp(1.5rem,4vw,3.75rem)] font-extrabold text-[#3a3a3a] leading-[1.125] text-center w-[90%] md:w-[70%] tracking-tight">
-          A space for work shaped with clarity and intention. Each project follows
-          a simple path from thought to form, from form to function.
+          I'm from a small town where shortcuts aren't an option. Built my way up through execution and curiosity. Now I'm obsessed with one thing: building systems that actually think. RIYA is that bet. No shortcuts. No noise. Just work that matters.
         </h1>
       </section>
 
@@ -114,11 +119,9 @@ const ScrollAnimationSection = () => {
 
       {/* Services Copy Section */}
       <section className="services-copy w-full min-h-screen py-[20vh] flex items-center justify-center px-8 text-center bg-[#000000] relative overflow-hidden">
-        <ImageTrail items={trailImages} variant={6} />
+        <ImageTrail items={trailImages} variant={5} />
         <h1 className="animate-text text-[clamp(1.5rem,4vw,3.75rem)] font-extrabold text-[#3a3a3a] leading-[1.125] text-center w-[90%] md:w-[70%] tracking-tight z-20 pointer-events-none">
-          I create websites and digital experiences that value clarity above
-          excess. Through minimal form and precise detail, I aim to build work
-          that lasts and offers a quiet sense of order.
+          The best work happens in silence. I obsess over solving real problems, then make them simple. No excess. No shortcuts. Just systems that work and last
         </h1>
       </section>
 

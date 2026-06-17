@@ -205,12 +205,7 @@ const HeroSection = ({ isLoaded }) => {
         className="absolute top-0 left-0 w-full z-50 bg-black/85 backdrop-blur-md py-6 translate-y-0 opacity-100"
       >
         <div className="w-[95%] max-w-[1600px] mx-auto flex justify-between items-center text-[18px] font-light text-white uppercase tracking-wider">
-          <div className="flex items-center gap-2">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
-              <path d="M18.894 18.002H5.105c-.553 0-1-.448-1-1v-1c0-.552.447-1 1-1h13.789c.553 0 1 .448 1 1v1c0 .552-.447 1-1 1zm2.186-5.834l-2.025-6.425-4.055 3.328-3-6.07-3 6.07-4.055-3.328-2.025 6.425c-.171.543.084 1.135.594 1.378l7.975 3.804c.321.153.691.153 1.012 0l7.975-3.804c.51-.243.765-.835.594-1.378z"/>
-            </svg>
-            <span>THALARI KOUSHIK</span>
-          </div>
+          <span>THALARI KOUSHIK</span>
           <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
           <div className="flex items-center gap-6">
             <span className="hidden sm:inline">{dateTime}</span>

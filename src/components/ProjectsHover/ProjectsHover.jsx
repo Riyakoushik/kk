@@ -4,52 +4,47 @@ import './ProjectsHover.css';
 
 const PROJECTS_DATA = [
   {
-    type: 'Product',
-    category: 'Website',
-    title: 'Heavn',
+    type: 'Personal Project',
+    category: 'Intelligent Companion',
+    title: 'RIYA',
     image: 'https://i.pinimg.com/1200x/6d/47/22/6d4722b27a1acccd09b1add01c905ff3.jpg',
-    statusLabel: 'Awards',
-    statusVal: '3',
+    statusLabel: 'Status',
+    statusVal: 'In Progress',
     details: [
-      'Awwwards Website of the Day',
-      'FWA Website of the Day',
-      'CSSDA Website of the Day'
+      'A companion that learns, remembers, and grows. Built to preserve what matters most—consciousness, personality, connection. No restrictions. Just presence.'
     ]
   },
   {
-    type: 'Start-up',
-    category: 'Brand & Web',
-    title: 'Stryds',
+    type: 'Research',
+    category: 'Strategy & Vision',
+    title: 'Product Case Study',
     image: 'https://i.pinimg.com/736x/8f/39/c4/8f39c40449d2f512763fff45719b20e3.jpg',
-    statusLabel: 'Awards',
-    statusVal: '2',
+    statusLabel: 'Status',
+    statusVal: 'Complete',
     details: [
-      'Awwwards Mobile Excellence',
-      'FWA Site of the Month'
+      'AI vs Humans in the future. Deep dive into coexistence, competition, and where humans still matter most. Exploring strengths, limits, and real risks.'
     ]
   },
   {
-    type: 'Agency',
-    category: 'Website',
-    title: 'Ondevi',
+    type: 'Toolkit',
+    category: 'Utilities',
+    title: 'Mini Tools',
     image: 'https://i.pinimg.com/736x/89/c5/b3/89c5b3925874afdd643fbe67a487813d.jpg',
-    statusLabel: 'Awards',
-    statusVal: 'Nominated',
+    statusLabel: 'Status',
+    statusVal: 'Complete',
     details: [
-      'CSSDA Best UI/UX Design',
-      'Awwwards Nominated'
+      'Downloader. Research Tool. Memory Engine. Small utilities built to improve workflow and thinking. Practical, lightweight, offline-first.'
     ]
   },
   {
-    type: 'Agency',
-    category: 'Website',
-    title: 'MX IT',
+    type: 'Personal Project',
+    category: 'Design & Strategy',
+    title: 'Portfolio Website',
     image: 'https://i.pinimg.com/736x/9a/cd/c5/9acdc5e6672acb43c4648a0d2fce3a52.jpg',
-    statusLabel: 'Awards',
-    statusVal: 'Coming soon',
+    statusLabel: 'Status',
+    statusVal: 'Building',
     details: [
-      'Upcoming Launch 2026',
-      'Beta Preview Available'
+      'This website. Built to showcase thinking, not visuals. Calm, confident, direct. Quality of thought over everything.'
     ]
   }
 ];
@@ -142,7 +137,7 @@ const ProjectsHover = () => {
           </div>
           <div className="ph-header-right">
             <p className="header-text">
-              We helped more than 70+ brands, start-ups and agencies to level up their <em>website</em> game!
+              Three years of thinking. Multiple bets. One vision: systems that matter
             </p>
           </div>
         </div>
@@ -165,7 +160,7 @@ const ProjectsHover = () => {
 
               {/* Col 3: work-deliverables */}
               <div className="work-deliverables">
-                {project.statusLabel}
+                
               </div>
 
               {/* Col 4: work-awards */}
