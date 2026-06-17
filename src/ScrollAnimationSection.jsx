@@ -95,7 +95,7 @@ const ScrollAnimationSection = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="scroll-animation-wrapper w-full bg-[#000000] text-white overflow-x-hidden font-roboto">
+    <div ref={containerRef} className="scroll-animation-wrapper w-full bg-[#000000] text-white overflow-x-hidden font-manrope">
       
       {/* About Section */}
       <section id="about" className="about h-screen w-full flex items-center justify-center px-8 relative overflow-hidden bg-[#000000]">

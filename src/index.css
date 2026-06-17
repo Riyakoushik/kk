@@ -31,27 +31,11 @@
 }
 
 @font-face {
-  font-family: 'Bodoni Moda';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url('./assets/BodoniModa-Italic.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('./assets/Manrope-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Manrope';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('./assets/Manrope-Bold.ttf') format('truetype');
+  src: url('./assets/Montserrat-Bold.ttf') format('truetype');
 }
 
 @import "tailwindcss";
@@ -61,7 +45,6 @@
   --font-roboto: "Roboto", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
   --font-bodoni: "Bodoni Moda", serif;
-  --font-manrope: "Manrope", sans-serif;
 }
 
 html,

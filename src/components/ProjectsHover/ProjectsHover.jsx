@@ -146,6 +146,11 @@ const ProjectsHover = () => {
           {PROJECTS_DATA.map((project, index) => (
             <div className="work-row" key={index}>
               
+              {/* Mobile Image (hidden on desktop, visible on mobile) */}
+              <div className="ph-mobile-image md:hidden">
+                <img src={project.image} alt={project.title} className="w-full h-[220px] object-cover rounded-lg mb-4" />
+              </div>
+
               {/* Col 1: work-tags */}
               <div className="work-tags">
                 <span className="work-meta">{project.type}</span>
@@ -155,6 +160,13 @@ const ProjectsHover = () => {
               {/* Col 2: project-title */}
               <div className="project-title">
                 {project.title}
+              </div>
+
+              {/* Mobile Description (hidden on desktop, visible on mobile) */}
+              <div className="ph-mobile-details md:hidden text-white/70 text-[14px] leading-relaxed my-2">
+                {project.details.map((detail, idx) => (
+                  <p key={idx}>{detail}</p>
+                ))}
               </div>
 
               {/* Col 3: work-deliverables */}
