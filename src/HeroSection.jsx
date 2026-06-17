@@ -313,12 +313,8 @@ const HeroSection = ({ isLoaded }) => {
                 </svg>
               </a>
               <a href={gmailComposeUrl} target="_blank" rel="noopener noreferrer" className="hover:scale-110 active:scale-95 transition-transform duration-200" aria-label="Gmail">
-                <svg className="w-8 h-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z" fill="#eeeeee"/>
-                  <path d="M20 4H17v8.5L12 15l-5-2.5V4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z" fill="#e53935"/>
-                  <path d="M12 15L2 9.5V6l10 5.5L22 6v3.5L12 15z" fill="#d32f2f"/>
-                  <path d="M2 6v12c0 1.1.9 2 2 2h3V9.5L2 6z" fill="#2e7d32"/>
-                  <path d="M22 6v12c0 1.1-.9 2-2 2h-3V9.5L22 6z" fill="#fbc02d"/>
+                <svg className="w-8 h-8" fill="#ea4335" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                 </svg>
               </a>
               <a href="https://linkedin.com/in/tkoushik" target="_blank" rel="noopener noreferrer" className="hover:scale-110 active:scale-95 transition-transform duration-200" aria-label="LinkedIn">
