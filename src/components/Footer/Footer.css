@@ -255,14 +255,28 @@
   
   .ft-nav-row {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 2.5rem;
-    padding-bottom: 2rem;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .ft-nav-logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #ffffff;
   }
   
   .ft-nav-links {
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  .ft-nav-socials {
+    justify-content: center;
+    width: 100%;
   }
   
   .ft-legal-row {
