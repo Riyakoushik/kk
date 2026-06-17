@@ -291,6 +291,7 @@ const HeroSection = ({ isLoaded }) => {
                   <span className="split-target">email now</span>
                 </div>
               </div>
+            </div>
             <div className="menu-bottom">
               <a href="https://instagram.com/nameiskoushikthalari" target="_blank" rel="noopener noreferrer" className="hover:scale-110 active:scale-95 transition-transform duration-200" aria-label="Instagram">
                 <svg className="w-8 h-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
