@@ -1,7 +1,7 @@
 /* Font Variables and Theme Setup */
 :root {
   --font-title: "Bodoni Moda", "Cormorant Garamond", Georgia, serif;
-  --font-ui: "Manrope", "Inter", Helvetica, Arial, sans-serif;
+  --font-ui: "Roboto", "Manrope", "Inter", Helvetica, Arial, sans-serif;
 }
 
 /* Section container - Wide Layout */
