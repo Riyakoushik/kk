@@ -22,6 +22,14 @@ const HeroSection = ({ isLoaded }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
+  // Direct web Gmail compose URL (prevents mailto client configuration issues)
+  const emailId = 'tkjs.koushik@gmail.com';
+  const subject = encodeURIComponent('Inquiry: Collaborating on a New Project');
+  const body = encodeURIComponent(
+    `Hi Koushik,\n\nI visited your portfolio and would love to discuss a potential project collaboration.\n\nProject Details:\n- Project Type: [ Design / Development / Full-Stack / Creative Coding ]\n- Desired Timeline: [ e.g., 1-2 months ]\n- Rough Budget Range: [ e.g., $X,XXX ]\n- Project Description: \n\nLooking forward to connecting!\n\nBest,\n[ Your Name ]\n[ Your Company / Website ]`
+  );
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailId}&su=${subject}&body=${body}`;
+
   useEffect(() => {
     const timer = setInterval(() => {
       setDateTime(getFormattedDateTime());
@@ -278,7 +286,7 @@ const HeroSection = ({ isLoaded }) => {
                 <div className="menu-item">
                   <div className="menu-item-link">
                     <div className="bg-hover"></div>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tkjs.koushik@gmail.com" target="_blank" rel="noopener noreferrer" className="split-target">contact</a>
+                    <a href={gmailComposeUrl} target="_blank" rel="noopener noreferrer" className="split-target">contact</a>
                   </div>
                   <span className="split-target">email now</span>
                 </div>
@@ -305,7 +313,7 @@ const HeroSection = ({ isLoaded }) => {
                 <div className="menu-title"><p className="split-target">gmail</p></div>
                 <div className="menu-content">
                   <p className="split-target">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tkjs.koushik@gmail.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>email</a>
+                    <a href={gmailComposeUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>email</a>
                   </p>
                 </div>
               </div>
