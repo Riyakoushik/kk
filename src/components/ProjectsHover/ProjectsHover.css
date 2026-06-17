@@ -386,7 +386,7 @@
 
   .ph-mobile-details {
     margin-top: 0.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
   }
 
   .work-deliverables {
@@ -394,25 +394,7 @@
   }
   
   .work-awards {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 1rem;
-    margin-top: 0.5rem;
-  }
-
-  .ph-status-val-default {
-    opacity: 1 !important;
-    transform: none !important;
-    font-size: 12px;
-    font-weight: 500;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 3px 10px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    display: none;
   }
   
   .ph-project-thumbnail {
@@ -421,21 +403,5 @@
   
   .ph-awards-list-hover {
     display: none;
-  }
-  
-  .ph-arrow-btn {
-    display: flex;
-    opacity: 0.6;
-    transform: none;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    margin-left: 0;
-  }
-
-  .work-row:hover .ph-arrow-btn {
-    opacity: 1;
-    transform: scale(1.05);
-    border-color: rgba(255, 255, 255, 0.4);
-    color: #ffffff;
-    background-color: transparent;
   }
 }
