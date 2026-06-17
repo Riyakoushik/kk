@@ -317,6 +317,10 @@
   .ft-marquee-container {
     display: none !important;
   }
+
+  .ft-marquee-cursor-btn {
+    display: none !important;
+  }
 }
 
 /* Footer Marquee text slider */
