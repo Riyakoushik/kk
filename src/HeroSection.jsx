@@ -257,59 +257,64 @@ const HeroSection = ({ isLoaded }) => {
                 <div className="menu-item">
                   <div className="menu-item-link">
                     <div className="bg-hover"></div>
-                    <a href="#" className="split-target">story</a>
+                    <a href="#about" onClick={handleClose} className="split-target">about</a>
                   </div>
-                  <span className="split-target">page 001</span>
+                  <span className="split-target">who I am</span>
                 </div>
                 <div className="menu-item">
                   <div className="menu-item-link">
                     <div className="bg-hover"></div>
-                    <a href="#" className="split-target">Protocol</a>
+                    <a href="#projects" onClick={handleClose} className="split-target">projects</a>
                   </div>
-                  <span className="split-target">20 ideas</span>
+                  <span className="split-target">selected work</span>
                 </div>
                 <div className="menu-item">
                   <div className="menu-item-link">
                     <div className="bg-hover"></div>
-                    <a href="#" className="split-target">journal</a>
+                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="split-target">resume</a>
                   </div>
-                  <span className="split-target">10 notes</span>
+                  <span className="split-target">view pdf</span>
                 </div>
                 <div className="menu-item">
                   <div className="menu-item-link">
                     <div className="bg-hover"></div>
-                    <a href="#" className="split-target">contact</a>
+                    <a href="/resume.pdf" download="Thalari_Koushik_Resume.pdf" className="split-target">download resume</a>
+                  </div>
+                  <span className="split-target">get file</span>
+                </div>
+                <div className="menu-item">
+                  <div className="menu-item-link">
+                    <div className="bg-hover"></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tkjs.koushik@gmail.com" target="_blank" rel="noopener noreferrer" className="split-target">contact</a>
                   </div>
                   <span className="split-target">email now</span>
-                </div>
-                <div className="menu-item" id="active">
-                  <div className="menu-item-link">
-                    <div className="bg-hover"></div>
-                    <a href="#" className="split-target">gallery</a>
-                  </div>
-                  <span className="split-target">check out</span>
-                </div>
-                <div className="menu-item">
-                  <div className="menu-item-link">
-                    <div className="bg-hover"></div>
-                    <a href="#" className="split-target">about</a>
-                  </div>
-                  <span className="split-target">our office</span>
                 </div>
               </div>
             </div>
             <div className="menu-bottom">
               <div className="menu-sub-item">
-                <div className="menu-title"><p className="split-target">connect</p></div>
-                <div className="menu-content"><p className="split-target">Discord</p></div>
+                <div className="menu-title"><p className="split-target">instagram</p></div>
+                <div className="menu-content">
+                  <p className="split-target">
+                    <a href="#instagram" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>connect</a>
+                  </p>
+                </div>
               </div>
               <div className="menu-sub-item">
-                <div className="menu-title"><p className="split-target">buy On</p></div>
-                <div className="menu-content"><p className="split-target">Opensea</p></div>
+                <div className="menu-title"><p className="split-target">discord</p></div>
+                <div className="menu-content">
+                  <p className="split-target">
+                    <a href="#discord" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>connect</a>
+                  </p>
+                </div>
               </div>
               <div className="menu-sub-item">
-                <div className="menu-title"><p className="split-target">us-en</p></div>
-                <div className="menu-content"><p className="split-target">2022</p></div>
+                <div className="menu-title"><p className="split-target">gmail</p></div>
+                <div className="menu-content">
+                  <p className="split-target">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tkjs.koushik@gmail.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>email</a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>

@@ -127,7 +127,7 @@ const ProjectsHover = () => {
   }, []);
 
   return (
-    <section className="ph-section" ref={containerRef}>
+    <section id="projects" className="ph-section" ref={containerRef}>
       <div className="ph-container">
         
         {/* Section Header */}

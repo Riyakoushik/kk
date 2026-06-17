@@ -98,7 +98,7 @@ const ScrollAnimationSection = () => {
     <div ref={containerRef} className="scroll-animation-wrapper w-full bg-[#000000] text-white overflow-x-hidden font-manrope">
       
       {/* About Section */}
-      <section className="about h-screen w-full flex items-center justify-center px-8 relative overflow-hidden bg-[#000000]">
+      <section id="about" className="about h-screen w-full flex items-center justify-center px-8 relative overflow-hidden bg-[#000000]">
         <h1 className="animate-text text-[clamp(1.5rem,4vw,3.75rem)] font-extrabold text-[#3a3a3a] leading-[1.125] text-center w-[90%] md:w-[70%] tracking-tight">
           I'm from a small town where shortcuts aren't an option. Built my way up through execution and curiosity. Now I'm obsessed with one thing: building systems that actually think. RIYA is that bet. No shortcuts. No noise. Just work that matters.
         </h1>
