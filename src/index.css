@@ -70,6 +70,13 @@ body {
   color: #ffffff;
 }
 
+/* Plain link wrapper to keep visual text unchanged for SEO/AEO contextual links */
+.plain-link {
+  color: inherit !important;
+  text-decoration: none !important;
+  cursor: text !important;
+}
+
 /* Scoped Menu Styles from costom/styles.css */
 .menu-container {
   position: fixed;

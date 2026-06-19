@@ -99,9 +99,9 @@ const ScrollAnimationSection = () => {
       
       {/* About Section */}
       <section id="about" className="about h-screen w-full flex items-center justify-center px-8 relative overflow-hidden bg-[#000000]">
-        <h1 className="animate-text text-[clamp(1.5rem,4vw,3.75rem)] font-extrabold text-[#3a3a3a] leading-[1.125] text-center w-[90%] md:w-[70%] tracking-tight">
-          I'm from a small town where shortcuts aren't an option. Built my way up through execution and curiosity. Now I'm obsessed with one thing: building systems that actually think. RIYA is that bet. No shortcuts. No noise. Just work that matters.
-        </h1>
+        <h2 className="animate-text text-[clamp(1.5rem,4vw,3.75rem)] font-extrabold text-[#3a3a3a] leading-[1.125] text-center w-[90%] md:w-[70%] tracking-tight">
+          I'm from a small town where shortcuts aren't an option. Built my way up through execution and curiosity. Now I'm obsessed with one thing: building <a href="https://discord.com/invite/qDbEUEeg" target="_blank" rel="noopener noreferrer" className="plain-link">systems</a> that actually <a href="https://linkedin.com/in/tkoushik" target="_blank" rel="noopener noreferrer" className="plain-link">think</a>. <a href="https://github.com/Riyakoushik" target="_blank" rel="noopener noreferrer" className="plain-link">RIYA</a> is that bet. No shortcuts. No noise. Just <a href="#projects" className="plain-link">work</a> that matters.
+        </h2>
       </section>
 
       {/* Services Section */}
@@ -120,9 +120,9 @@ const ScrollAnimationSection = () => {
       {/* Services Copy Section */}
       <section className="services-copy w-full min-h-screen py-[20vh] flex items-center justify-center px-8 text-center bg-[#000000] relative overflow-hidden">
         <ImageTrail items={trailImages} variant={5} />
-        <h1 className="animate-text text-[clamp(1.5rem,4vw,3.75rem)] font-extrabold text-[#3a3a3a] leading-[1.125] text-center w-[90%] md:w-[70%] tracking-tight z-20 pointer-events-none">
-          The best work happens in silence. I obsess over solving real problems, then make them simple. No excess. No shortcuts. Just systems that work and last
-        </h1>
+        <h2 className="animate-text text-[clamp(1.5rem,4vw,3.75rem)] font-extrabold text-[#3a3a3a] leading-[1.125] text-center w-[90%] md:w-[70%] tracking-tight z-20 pointer-events-none">
+          The best <a href="#about" className="plain-link">work</a> happens in silence. I obsess over solving real problems, then make them <a href="#projects" className="plain-link">simple</a>. No excess. No shortcuts. Just <a href="#root" className="plain-link">systems</a> that work and last
+        </h2>
       </section>
 
     </div>
