@@ -231,11 +231,11 @@ const HeroSection = ({ isLoaded }) => {
       <div className="flex flex-col items-center justify-center pt-24 w-full h-full min-h-0 z-10 box-border">
         
         {/* Hero Text - Font Bebas Neue, 400 weight, 0.5px letter-spacing, uppercase, white, centered. */}
-        <h1 
+        <div 
           className="hero-title font-bebas text-[clamp(100px,min(18.5vw,30vh),280px)] font-normal uppercase tracking-[0.5px] text-white text-center leading-none mb-[16px] w-[95%] max-w-[1600px] translate-y-0 opacity-100 scale-100"
         >
           THALARI KOUSHIK
-        </h1>
+        </div>
 
         {/* Image Container - Stretches wide to 95% (max 1600px) like the text, but height is constrained
             by flex-1 min-h-0 to guarantee no vertical scrolling. */}
