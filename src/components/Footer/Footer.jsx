@@ -169,6 +169,11 @@ const Footer = () => {
           made with love and memory
         </div>
 
+        {/* Subtle, elegant contextual links block for SEO/AEO crawlers */}
+        <div className="ft-seo-citations text-center text-[11px] text-white/20 mt-6 tracking-wide leading-relaxed">
+          Explore the <a href="#about" className="hover:text-white/40 transition-colors text-white/20 no-underline">about section</a>, view my <a href="#projects" className="hover:text-white/40 transition-colors text-white/20 no-underline">selected projects</a>, check the source code on <a href="https://github.com/Riyakoushik" target="_blank" rel="noopener noreferrer" className="hover:text-white/40 transition-colors text-white/20 no-underline">GitHub</a>, and connect via <a href="https://linkedin.com/in/tkoushik" target="_blank" rel="noopener noreferrer" className="hover:text-white/40 transition-colors text-white/20 no-underline">LinkedIn</a> or <a href="https://discord.com/invite/qDbEUEeg" target="_blank" rel="noopener noreferrer" className="hover:text-white/40 transition-colors text-white/20 no-underline">Discord</a>.
+        </div>
+
         {/* Custom cursor capsule button for marquee hover */}
         <div className="ft-marquee-cursor-btn" ref={marqueeCursorRef}>
           Contact Me 
