@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
+import { LoadingScreen } from './components/LoadingScreen'
 import HeroSection from './HeroSection'
 import ScrollAnimationSection from './ScrollAnimationSection'
+import IdentitySequenceSection from './components/IdentitySequence'
 import ProjectsHover from './components/ProjectsHover/ProjectsHover'
 import Footer from './components/Footer/Footer'
 import { Agentation } from 'agentation'
@@ -41,8 +43,10 @@ function App() {
 
   return (
     <>
+      <LoadingScreen />
       <HeroSection />
       <ScrollAnimationSection />
+      <IdentitySequenceSection />
       <ProjectsHover />
       <Footer />
       {import.meta.env.DEV && <Agentation />}
