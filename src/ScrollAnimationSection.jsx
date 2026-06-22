@@ -5,15 +5,22 @@ import whatIDoSvg from "./assets/whatido.svg";
 import ImageTrail from "./components/ImageTrail/ImageTrail";
 
 import heroImage from "./assets/herofordestop.png";
+import trail1 from "./assets/trail/trail1.jpg";
+import trail2 from "./assets/trail/trail2.jpg";
+import trail3 from "./assets/trail/trail3.jpg";
+import trail4 from "./assets/trail/trail4.jpg";
+import trail5 from "./assets/trail/trail5.jpg";
+import trail6 from "./assets/trail/trail6.jpg";
+import trail7 from "./assets/trail/trail7.jpg";
 
 const trailImages = [
-  'https://picsum.photos/id/287/300/300',
-  'https://picsum.photos/id/1001/300/300',
-  'https://picsum.photos/id/1025/300/300',
-  'https://picsum.photos/id/1026/300/300',
-  'https://picsum.photos/id/1028/300/300',
-  'https://picsum.photos/id/1029/300/300',
-  'https://picsum.photos/id/1030/300/300',
+  trail1,
+  trail2,
+  trail3,
+  trail4,
+  trail5,
+  trail6,
+  trail7,
   heroImage
 ];
 
