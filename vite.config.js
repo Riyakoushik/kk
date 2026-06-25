@@ -5,7 +5,16 @@ import { resolve } from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react({
+      exclude: [
+        /_framer-runtime\.js$/,
+        /\/components\/[A-Z][^/]*\.js$/,
+        /\/components\/[A-Z][^/]*\.jsx$/,
+      ],
+    }),
+    tailwindcss()
+  ],
   base: process.env.GITHUB_ACTIONS ? '/kk/' : '/',
   build: {
     rollupOptions: {

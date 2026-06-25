@@ -1,11 +1,33 @@
 import { GMAIL_COMPOSE_URL } from '../../constants';
 import footerBanner from '../../assets/footer-banner.avif';
+import LayoutIsland from '../../utils/LayoutIsland';
+import ResponsiveWrapper from '../../utils/ResponsiveWrapper';
+import AUQNQ2Aok from '../InteractiveTicker/AUQNQ2Aok';
 import './Footer.css';
 
 const Footer = () => {
   return (
     <footer className="ft-section">
       <div className="ft-container">
+
+        {/* Desktop Framer Interactive Ticker (Desktop only) */}
+        <div className="ft-framer-ticker hidden md:block w-full overflow-hidden border-b border-white/8 pb-12 mb-6">
+          <LayoutIsland>
+            <ResponsiveWrapper
+              Component={AUQNQ2Aok}
+              variants={{
+                base: 'Content Responsive',
+                lg: 'Content (Desktop Default)',
+              }}
+              dkd2AUD2J="Curiosity"
+              RwAm8lAb9="Architecture"
+              wJxkvVY8C="Automation"
+              fqbUmcT0B={GMAIL_COMPOSE_URL}
+              jKExUW4SN={GMAIL_COMPOSE_URL}
+              a6nLchOqA={GMAIL_COMPOSE_URL}
+            />
+          </LayoutIsland>
+        </div>
 
         {/* Mobile Contact Button (Visible on mobile only) */}
         <a 
