@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { LoadingScreen } from './components/LoadingScreen'
 import HeroSection from './HeroSection'
 import ScrollAnimationSection from './ScrollAnimationSection'
-import IdentitySequenceSection from './components/IdentitySequence'
+import HorizontalWords from './components/truus/HorizontalWords'
 import ProjectsHover from './components/ProjectsHover/ProjectsHover'
 import Footer from './components/Footer/Footer'
 import { Agentation } from 'agentation'
@@ -10,6 +10,7 @@ import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+// ponytail: register once here, not per-component
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
       <LoadingScreen />
       <HeroSection />
       <ScrollAnimationSection />
-      <IdentitySequenceSection />
+      <HorizontalWords />
       <ProjectsHover />
       <Footer />
       {import.meta.env.DEV && <Agentation />}

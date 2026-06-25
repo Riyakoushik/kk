@@ -1,30 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import whatIDoSvg from "./assets/whatido.svg";
-import ImageTrail from "./components/ImageTrail/ImageTrail";
 
-import heroImage from "./assets/herofordestop.png";
-import trail1 from "./assets/trail/trail1.jpg";
-import trail2 from "./assets/trail/trail2.jpg";
-import trail3 from "./assets/trail/trail3.jpg";
-import trail4 from "./assets/trail/trail4.jpg";
-import trail5 from "./assets/trail/trail5.jpg";
-import trail6 from "./assets/trail/trail6.jpg";
-import trail7 from "./assets/trail/trail7.jpg";
 
-const trailImages = [
-  trail1,
-  trail2,
-  trail3,
-  trail4,
-  trail5,
-  trail6,
-  trail7,
-  heroImage
-];
-
-gsap.registerPlugin(ScrollTrigger);
+// ponytail: registerPlugin done once in App.jsx
 
 const ScrollAnimationSection = () => {
   const containerRef = useRef(null);
@@ -32,12 +12,17 @@ const ScrollAnimationSection = () => {
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // ponytail: collect owned triggers so teardown doesn't nuke other components' triggers
+    const ownedTriggers = ScrollTrigger.getAll().filter(
+      t => containerRef.current?.contains(t.trigger)
+    );
+
     // 1. Text reveal animations using clip-path
     const textElements = containerRef.current.querySelectorAll('.animate-text');
     textElements.forEach(textElement => {
       textElement.setAttribute('data-text', textElement.textContent.trim());
 
-      ScrollTrigger.create({
+      ownedTriggers.push(ScrollTrigger.create({
         trigger: textElement,
         start: 'top 75%',
         end: 'bottom 40%',
@@ -46,12 +31,12 @@ const ScrollAnimationSection = () => {
           const clipValue = Math.max(0, 100 - self.progress * 100);
           textElement.style.setProperty('--clip-value', `${clipValue}%`);
         },
-      });
+      }));
     });
 
     // 2. Services header entry (horizontal slide)
     const servicesTrigger = containerRef.current.querySelector('.services');
-    ScrollTrigger.create({
+    ownedTriggers.push(ScrollTrigger.create({
       trigger: servicesTrigger,
       start: 'top bottom',
       end: 'top top',
@@ -64,10 +49,10 @@ const ScrollAnimationSection = () => {
           gsap.set(headers[2], { x: `${100 - self.progress * 100}%` });
         }
       },
-    });
+    }));
 
     // 3. Services header pin & vertical movement & scaling
-    ScrollTrigger.create({
+    ownedTriggers.push(ScrollTrigger.create({
       trigger: servicesTrigger,
       start: 'top top',
       end: `+=${window.innerHeight * 1.5}`,
@@ -94,10 +79,10 @@ const ScrollAnimationSection = () => {
           }
         }
       },
-    });
+    }));
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ownedTriggers.forEach(t => t.kill());
     };
   }, []);
 
@@ -126,7 +111,6 @@ const ScrollAnimationSection = () => {
 
       {/* Services Copy Section */}
       <section className="services-copy w-full min-h-screen py-[20vh] flex items-center justify-center px-8 text-center bg-[#000000] relative overflow-hidden">
-        <ImageTrail items={trailImages} variant={5} />
         <h2 className="animate-text text-[clamp(1.5rem,4vw,3.75rem)] font-extrabold text-[#3a3a3a] leading-[1.125] text-center w-[90%] md:w-[70%] tracking-tight z-20 pointer-events-none">
           The best <a href="#about" className="plain-link">work</a> happens in silence. I obsess over solving real problems, then make them <a href="#projects" className="plain-link">simple</a>. No excess. No shortcuts. Just <a href="#root" className="plain-link">systems</a> that work and last
         </h2>

@@ -1,97 +1,15 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { GMAIL_COMPOSE_URL } from '../../constants';
 import footerBanner from '../../assets/footer-banner.avif';
 import './Footer.css';
 
 const Footer = () => {
-  const marqueeContainerRef = useRef(null);
-  const marqueeCursorRef = useRef(null);
-
-  // Direct web Gmail compose URL (prevents mailto client configuration issues)
-  const emailId = 'tkjs.koushik@gmail.com';
-  const subject = encodeURIComponent('Inquiry: Collaborating on a New Project');
-  const body = encodeURIComponent(
-    `Hi Koushik,\n\nI visited your portfolio and would love to discuss a potential project collaboration.\n\nProject Details:\n- Project Type: [ Design / Development / Full-Stack / Creative Coding ]\n- Desired Timeline: [ e.g., 1-2 months ]\n- Rough Budget Range: [ e.g., $X,XXX ]\n- Project Description: \n\nLooking forward to connecting!\n\nBest,\n[ Your Name ]\n[ Your Company / Website ]`
-  );
-  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailId}&su=${subject}&body=${body}`;
-
-  useEffect(() => {
-    const marqueeContainer = marqueeContainerRef.current;
-    const marqueeCursor = marqueeCursorRef.current;
-
-    if (!marqueeContainer || !marqueeCursor) return;
-
-    gsap.set(marqueeCursor, { scale: 0, xPercent: -50, yPercent: -50 });
-
-    const xTo = gsap.quickTo(marqueeCursor, 'x', {
-      duration: 0.3,
-      ease: 'power3.out',
-    });
-    const yTo = gsap.quickTo(marqueeCursor, 'y', {
-      duration: 0.3,
-      ease: 'power3.out',
-    });
-
-    const handleMouseMove = (e) => {
-      xTo(e.clientX);
-      yTo(e.clientY);
-    };
-
-    const handleMouseEnter = () => {
-      gsap.to(marqueeCursor, {
-        scale: 1,
-        duration: 0.3,
-        ease: 'power2.out',
-      });
-    };
-
-    const handleMouseLeave = () => {
-      gsap.to(marqueeCursor, {
-        scale: 0,
-        duration: 0.3,
-        ease: 'power2.out',
-      });
-    };
-
-    marqueeContainer.addEventListener('mousemove', handleMouseMove);
-    marqueeContainer.addEventListener('mouseenter', handleMouseEnter);
-    marqueeContainer.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      marqueeContainer.removeEventListener('mousemove', handleMouseMove);
-      marqueeContainer.removeEventListener('mouseenter', handleMouseEnter);
-      marqueeContainer.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
-
   return (
     <footer className="ft-section">
       <div className="ft-container">
 
-        {/* Clickable Marquee Text Slider (Desktop only) */}
-        <a 
-          href={gmailComposeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ft-marquee-container hidden md:flex" 
-          ref={marqueeContainerRef}
-          aria-label="Contact Koushik by Email"
-        >
-          <div className="ft-marquee-content">
-            <h3>WHY KOUSHIK NEED TO BUILD ALL OF THIS®?*</h3>
-            <h3>WHY KOUSHIK NEED TO BUILD ALL OF THIS®?*</h3>
-            <h3>WHY KOUSHIK NEED TO BUILD ALL OF THIS®?*</h3>
-          </div>
-          <div className="ft-marquee-content" aria-hidden="true">
-            <h3>WHY KOUSHIK NEED TO BUILD ALL OF THIS®?*</h3>
-            <h3>WHY KOUSHIK NEED TO BUILD ALL OF THIS®?*</h3>
-            <h3>WHY KOUSHIK NEED TO BUILD ALL OF THIS®?*</h3>
-          </div>
-        </a>
-
         {/* Mobile Contact Button (Visible on mobile only) */}
         <a 
-          href={gmailComposeUrl}
+          href={GMAIL_COMPOSE_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="ft-mobile-contact-btn md:hidden"
@@ -114,7 +32,7 @@ const Footer = () => {
           <div className="ft-nav-links">
             <a href="#about" className="ft-nav-link">About Us</a>
             <a 
-              href={gmailComposeUrl} 
+              href={GMAIL_COMPOSE_URL} 
               target="_blank"
               rel="noopener noreferrer"
               className="ft-nav-link"
@@ -139,7 +57,7 @@ const Footer = () => {
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051c-.058 1.28-.072 1.689-.072 4.949 0 3.26.014 3.669.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.26 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.26-.014-3.669-.073-4.949-.2-4.357-2.618-6.78-6.979-6.98C15.668.014 15.26 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
               </svg>
             </a>
-            <a href={gmailComposeUrl} target="_blank" rel="noopener noreferrer" aria-label="Gmail" className="ft-social-link">
+            <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noopener noreferrer" aria-label="Gmail" className="ft-social-link">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
               </svg>
@@ -172,12 +90,6 @@ const Footer = () => {
         {/* Subtle, elegant contextual links block for SEO/AEO crawlers */}
         <div className="ft-seo-citations text-center text-[11px] text-white/20 mt-6 tracking-wide leading-relaxed">
           Explore the <a href="#about" className="hover:text-white/40 transition-colors text-white/20 no-underline">about section</a>, view my <a href="#projects" className="hover:text-white/40 transition-colors text-white/20 no-underline">selected projects</a>, check the source code on <a href="https://github.com/Riyakoushik" target="_blank" rel="noopener noreferrer" className="hover:text-white/40 transition-colors text-white/20 no-underline">GitHub</a>, and connect via <a href="https://linkedin.com/in/tkoushik" target="_blank" rel="noopener noreferrer" className="hover:text-white/40 transition-colors text-white/20 no-underline">LinkedIn</a> or <a href="https://discord.com/invite/qDbEUEeg" target="_blank" rel="noopener noreferrer" className="hover:text-white/40 transition-colors text-white/20 no-underline">Discord</a>.
-        </div>
-
-        {/* Custom cursor capsule button for marquee hover */}
-        <div className="ft-marquee-cursor-btn" ref={marqueeCursorRef}>
-          Contact Me 
-          <span className="ft-cursor-arrow">↗</span>
         </div>
 
       </div>
