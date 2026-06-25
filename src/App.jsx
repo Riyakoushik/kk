@@ -4,7 +4,8 @@ import HeroSection from './HeroSection'
 import ScrollAnimationSection from './ScrollAnimationSection'
 import HorizontalWords from './components/truus/HorizontalWords'
 import ProjectsHover from './components/ProjectsHover/ProjectsHover'
-import Footer from './components/Footer/Footer'
+import FramerTicker from './components/InteractiveTicker/FramerTicker'
+import { DesktopPromptModal } from './components/DesktopPromptModal'
 import { Agentation } from 'agentation'
 import Lenis from 'lenis'
 import gsap from 'gsap'
@@ -45,11 +46,12 @@ function App() {
   return (
     <>
       <LoadingScreen />
+      <DesktopPromptModal />
       <HeroSection />
       <ScrollAnimationSection />
       <HorizontalWords />
       <ProjectsHover />
-      <Footer />
+      <FramerTicker />
       {import.meta.env.DEV && <Agentation />}
     </>
   )

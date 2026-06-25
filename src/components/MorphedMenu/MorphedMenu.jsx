@@ -24,7 +24,35 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { addPropertyControls, ControlType, useIsStaticRenderer } from "./_framer-runtime.js";
 function AnimatedMenu(props) {
-  const { navLinks, footerLinksData, menuBackgroundColor, menuTextColor, hoverLineColor, btnClosedBg, btnClosedColor, btnOpenBg, btnOpenColor, navFontSizeDesktop, navFontSizeMobile, footerFontSizeDesktop, footerFontSizeMobile, btnFontSizeDesktop, btnFontSizeMobile, menuWidthDesktop, menuHeightDesktop, menuWidthMobile, menuHeightMobile, mobileBreakpoint, springStiffness, springDamping, springMass, linkStiffness, linkDamping, linkDelayOffset, menuFont = defaultProps.menuFont } = props;
+  const {
+    navLinks = defaultProps.navLinks,
+    footerLinksData = defaultProps.footerLinksData,
+    menuBackgroundColor = "#000000",
+    menuTextColor = "#FFFFFF",
+    hoverLineColor = "#FFFFFF",
+    btnClosedBg = "#000000",
+    btnClosedColor = "#FFFFFF",
+    btnOpenBg = "#FFFFFF",
+    btnOpenColor = "#000000",
+    navFontSizeDesktop = 46,
+    navFontSizeMobile = 36,
+    footerFontSizeDesktop = 20,
+    footerFontSizeMobile = 18,
+    btnFontSizeDesktop = 18,
+    btnFontSizeMobile = 16,
+    menuWidthDesktop = "440px",
+    menuHeightDesktop = "460px",
+    menuWidthMobile = "90vw",
+    menuHeightMobile = "60vh",
+    mobileBreakpoint = 768,
+    springStiffness = 60,
+    springDamping = 14,
+    springMass = 1,
+    linkStiffness = 80,
+    linkDamping = 15,
+    linkDelayOffset = 0.03,
+    menuFont = defaultProps.menuFont
+  } = props;
   const isStatic = useIsStaticRenderer();
   const [click, setClick] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,9 +62,9 @@ function AnimatedMenu(props) {
   const ref = useRef(null);
   const [windowWidth, setWindowWidth] = useState(() => typeof __dai_window !== "undefined" ? __dai_window.innerWidth : 1e3);
   useEffect(() => {
-    const handleResize = () => setWindowWidth(__dai_window.innerWidth);
-    __dai_window.addEventListener("resize", handleResize);
-    return () => __dai_window.removeEventListener("resize", handleResize);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
   useEffect(() => {
     const handler = (e) => {
@@ -50,34 +78,34 @@ function AnimatedMenu(props) {
   useEffect(() => {
     let timeoutId;
     if (click) {
-      timeoutId = __dai_window.setTimeout(() => setMenuOpen(true), 500);
+      timeoutId = window.setTimeout(() => setMenuOpen(true), 500);
     } else {
       setMenuOpen(false);
     }
     return () => {
       if (timeoutId !== void 0) {
-        __dai_window.clearTimeout(timeoutId);
+        window.clearTimeout(timeoutId);
       }
     };
   }, [click]);
   const isMobile = windowWidth < mobileBreakpoint;
   const buttonWidth = isMobile ? "90px" : "110px";
   const buttonHeight = isMobile ? "40px" : "46px";
-  const menuFontStyle = { fontFamily: menuFont?.fontFamily, fontWeight: menuFont?.fontWeight, fontStyle: menuFont?.fontStyle, letterSpacing: menuFont?.letterSpacing };
-  const perspectiveAnimation = { initial: { opacity: 0, rotateX: 100, translateY: 80 }, open: (i) => ({ opacity: 1, rotateX: 0, translateY: 0, translateX: 0, transition: { delay: i * linkDelayOffset, type: "spring", stiffness: linkStiffness, damping: linkDamping, mass: 0.8 } }) };
-  const footerAnimation = { initial: { opacity: 0, y: 20 }, open: (i) => ({ opacity: 1, y: 0, transition: { delay: 0.5 + i * 0.1, type: "spring", stiffness: linkStiffness, damping: linkDamping, mass: 0.8 } }) };
+  const menuFontStyle = { fontFamily: menuFont?.fontFamily ? `"${menuFont.fontFamily}", "Roboto", "Manrope", sans-serif` : '"Roboto", "Manrope", sans-serif', fontWeight: menuFont?.fontWeight, fontStyle: menuFont?.fontStyle, letterSpacing: menuFont?.letterSpacing };
+  const perspectiveAnimation = { closed: { opacity: 0, y: 20 }, open: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.05, type: "spring", stiffness: 100, damping: 15 } }) };
+  const footerAnimation = { closed: { opacity: 0, y: 20 }, open: (i) => ({ opacity: 1, y: 0, transition: { delay: 0.2 + i * 0.05, type: "spring", stiffness: 100, damping: 15 } }) };
   const menuAnimation = { open: { width: isMobile ? menuWidthMobile : menuWidthDesktop, height: isMobile ? menuHeightMobile : menuHeightDesktop, top: "0px", right: "0px", transition: { type: "spring", stiffness: springStiffness, damping: springDamping, mass: springMass } }, closed: { width: buttonWidth, height: buttonHeight, top: "0px", right: "0px", transition: { type: "spring", stiffness: springStiffness, damping: springDamping, mass: springMass } } };
   if (isStatic) {
     return /* @__PURE__ */ _jsx("div", { style: { position: "relative", display: "inline-block", width: buttonWidth, height: buttonHeight }, children: /* @__PURE__ */ _jsx("button", { style: { width: buttonWidth, height: buttonHeight, borderRadius: "25px", border: "1px solid rgba(255, 255, 255, 0.2)", backgroundColor: btnClosedBg, color: btnClosedColor, fontSize: `${btnFontSizeDesktop}px`, ...menuFontStyle, fontWeight: menuFontStyle.fontWeight ?? 500, cursor: "pointer" }, children: "MENU" }) });
   }
-  return /* @__PURE__ */ _jsxs("div", { ref, style: { position: "relative", display: "inline-block", width: buttonWidth, height: buttonHeight }, children: [/* @__PURE__ */ _jsxs(motion.div, { id: menuId, role: "menu", "aria-label": "Site navigation", style: { position: "absolute", display: "flex", flexDirection: "column", justifyContent: "center", borderRadius: "24px", backgroundColor: menuBackgroundColor, ...menuFontStyle, overflow: "hidden", zIndex: 1 }, variants: menuAnimation, initial: "closed", animate: click ? "open" : "closed", children: [/* @__PURE__ */ _jsx("div", { style: { display: "flex", flexDirection: "column", marginLeft: isMobile ? "16px" : "40px", marginTop: "16px" }, children: /* @__PURE__ */ _jsx(AnimatePresence, { children: menuOpen && navLinks.map((link, i) => {
+  return /* @__PURE__ */ _jsxs("div", { ref, style: { position: "relative", display: "inline-block", width: buttonWidth, height: buttonHeight }, children: [/* @__PURE__ */ _jsxs(motion.div, { id: menuId, role: "menu", "aria-label": "Site navigation", style: { position: "absolute", top: "0px", right: "0px", display: "flex", flexDirection: "column", justifyContent: "flex-start", borderRadius: "24px", backgroundColor: menuBackgroundColor, border: "1px solid rgba(255, 255, 255, 0.15)", ...menuFontStyle, overflow: "hidden", zIndex: 1 }, variants: menuAnimation, initial: "closed", animate: click ? "open" : "closed", children: [/* @__PURE__ */ _jsx("div", { style: { display: "flex", flexDirection: "column", marginLeft: isMobile ? "24px" : "32px", marginTop: "64px" }, children: navLinks.map((link, i) => {
     const isHovered = hover === i;
-    return /* @__PURE__ */ _jsx("div", { style: { marginBottom: "-4px", perspective: "70px", perspectiveOrigin: "bottom" }, children: /* @__PURE__ */ _jsxs(motion.div, { style: { display: "flex", alignItems: "center", gap: "8px" }, variants: perspectiveAnimation, initial: "initial", animate: "open", exit: "exit", onMouseEnter: () => setHoveredIndex(i), onMouseLeave: () => setHoveredIndex(null), custom: i, children: [/* @__PURE__ */ _jsx(motion.svg, { animate: isHovered ? { width: 48 } : { width: 0 }, width: "0", height: "31", viewBox: "0 0 105 62", fill: "none", xmlns: "http://www.w3.org/2000/svg", transition: { type: "spring", stiffness: 200, damping: 20 }, "aria-hidden": "true", children: /* @__PURE__ */ _jsx("path", { d: "M0 31H103M103 31L73.5 1.5M103 31L73.5 60.5", stroke: hoverLineColor, strokeWidth: "2", vectorEffect: "non-scaling-stroke" }) }), /* @__PURE__ */ _jsx(motion.a, { href: link.url, role: "menuitem", style: { color: menuTextColor, textDecoration: "none", fontSize: isMobile ? `${navFontSizeMobile}px` : `${navFontSizeDesktop}px` }, transition: { type: "spring", stiffness: 200, damping: 20 }, children: link.title })] }) }, i);
-  }) }) }), /* @__PURE__ */ _jsx(AnimatePresence, { children: menuOpen && /* @__PURE__ */ _jsx(motion.div, { "aria-label": "Social links", style: { display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", marginLeft: isMobile ? "32px" : "52px", marginTop: "32px" }, children: footerLinksData.map((link, i) => {
+    return /* @__PURE__ */ _jsx("div", { style: { marginBottom: "8px", perspective: "70px", perspectiveOrigin: "bottom" }, children: /* @__PURE__ */ _jsxs(motion.div, { style: { display: "flex", alignItems: "center", gap: "8px" }, variants: perspectiveAnimation, custom: i, initial: "closed", animate: click ? "open" : "closed", onMouseEnter: () => setHoveredIndex(i), onMouseLeave: () => setHoveredIndex(null), children: [/* @__PURE__ */ _jsx(motion.svg, { animate: isHovered ? { width: 48 } : { width: 0 }, width: "0", height: "31", viewBox: "0 0 105 62", fill: "none", xmlns: "http://www.w3.org/2000/svg", transition: { type: "spring", stiffness: 200, damping: 20 }, "aria-hidden": "true", children: /* @__PURE__ */ _jsx("path", { d: "M0 31H103M103 31L73.5 1.5M103 31L73.5 60.5", stroke: hoverLineColor, strokeWidth: "2", vectorEffect: "non-scaling-stroke" }) }), /* @__PURE__ */ _jsx(motion.a, { href: link.url, role: "menuitem", style: { color: menuTextColor, textDecoration: "none", fontSize: isMobile ? `${navFontSizeMobile}px` : `${navFontSizeDesktop}px` }, transition: { type: "spring", stiffness: 200, damping: 20 }, children: link.title })] }) }, i);
+  }) }), /* @__PURE__ */ _jsx(motion.div, { "aria-label": "Social links", style: { display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", marginLeft: isMobile ? "24px" : "32px", marginTop: "24px", marginBottom: "24px" }, children: footerLinksData.map((link, i) => {
     const { title, url } = link;
     const isHovered2 = hover2 === i;
-    return /* @__PURE__ */ _jsxs(motion.div, { style: { position: "relative", width: "fit-content", marginBottom: "8px" }, variants: footerAnimation, custom: i, initial: "initial", animate: "open", exit: "exit", onMouseEnter: () => setHoveredIndex2(i), onMouseLeave: () => setHoveredIndex2(null), children: [/* @__PURE__ */ _jsx(motion.a, { href: url, role: "menuitem", style: { color: menuTextColor, textDecoration: "none", fontSize: isMobile ? `${footerFontSizeMobile}px` : `${footerFontSizeDesktop}px` }, children: title }), /* @__PURE__ */ _jsx(motion.div, { "aria-hidden": "true", style: { position: "absolute", left: 0, bottom: 0, height: "2px", backgroundColor: hoverLineColor }, animate: { width: isHovered2 ? "100%" : "0%" }, initial: { width: "0%" }, transition: { type: "spring", stiffness: 200, damping: 25 } })] }, `f_${i}`);
-  }) }) })] }), /* @__PURE__ */ _jsx(Menubutton, { click, setClick, isMobile, btnClosedBg, btnClosedColor, btnOpenBg, btnOpenColor, btnFontSizeDesktop, btnFontSizeMobile, menuId, menuOpen })] });
+    return /* @__PURE__ */ _jsxs(motion.div, { style: { position: "relative", width: "fit-content", marginBottom: "8px" }, variants: footerAnimation, custom: i, initial: "closed", animate: click ? "open" : "closed", onMouseEnter: () => setHoveredIndex2(i), onMouseLeave: () => setHoveredIndex2(null), children: [/* @__PURE__ */ _jsx(motion.a, { href: url, role: "menuitem", style: { color: menuTextColor, textDecoration: "none", fontSize: isMobile ? `${footerFontSizeMobile}px` : `${footerFontSizeDesktop}px` }, children: title }), /* @__PURE__ */ _jsx(motion.div, { "aria-hidden": "true", style: { position: "absolute", left: 0, bottom: 0, height: "2px", backgroundColor: hoverLineColor }, animate: { width: isHovered2 ? "100%" : "0%" }, initial: { width: "0%" }, transition: { type: "spring", stiffness: 200, damping: 25 } })] }, `f_${i}`);
+  }) })] }), /* @__PURE__ */ _jsx(Menubutton, { click, setClick, isMobile, btnClosedBg, btnClosedColor, btnOpenBg, btnOpenColor, btnFontSizeDesktop, btnFontSizeMobile, menuId, menuOpen })] });
 }
 function Menubutton({ click, setClick, isMobile, btnClosedBg, btnClosedColor, btnOpenBg, btnOpenColor, btnFontSizeDesktop, btnFontSizeMobile, menuId, menuOpen }) {
   const [hovered, setHovered] = useState(false);
@@ -85,7 +113,7 @@ function Menubutton({ click, setClick, isMobile, btnClosedBg, btnClosedColor, bt
   return /* @__PURE__ */ _jsx("button", { onClick: () => setClick(!click), onMouseEnter: () => setHovered(true), onMouseLeave: () => setHovered(false), "aria-expanded": menuOpen, "aria-haspopup": "menu", "aria-controls": menuId, "aria-label": click ? "Close menu" : "Open menu", style: { position: "absolute", top: "0px", right: "0px", cursor: "pointer", fontFamily: "inherit", zIndex: 2, width: isMobile ? "90px" : "110px", height: isMobile ? "40px" : "46px", borderRadius: "25px", overflow: "hidden", border: click ? "none" : "1px solid rgba(255, 255, 255, 0.2)", padding: 0, backgroundColor: "transparent" }, children: /* @__PURE__ */ _jsxs(motion.div, { style: { position: "relative", width: "100%", height: "100%" }, animate: { y: click ? "-100%" : "0%" }, transition: { type: "spring", stiffness: 200, damping: 22 }, children: [/* @__PURE__ */ _jsxs("div", { style: { position: "relative", height: "100%", width: "100%", overflow: "hidden" }, children: [/* @__PURE__ */ _jsx(motion.div, { style: { height: "100%", width: "100%" }, animate: { y: hovered ? "-100%" : "0%" }, initial: false, transition: { type: "spring", stiffness: 200, damping: 22 }, children: /* @__PURE__ */ _jsx(ButtonLabel, { bg: btnClosedBg, clr: btnClosedColor, fontSize, children: "MENU" }) }), /* @__PURE__ */ _jsx(motion.div, { style: { position: "absolute", inset: 0 }, animate: { y: hovered ? "0%" : "100%" }, transition: { type: "spring", stiffness: 200, damping: 22 }, initial: false, children: /* @__PURE__ */ _jsx(ButtonLabel, { bg: btnClosedBg, clr: btnClosedColor, fontSize, children: "MENU" }) })] }), /* @__PURE__ */ _jsxs("div", { style: { position: "relative", height: "100%", width: "100%", overflow: "hidden" }, children: [/* @__PURE__ */ _jsx(motion.div, { style: { height: "100%", width: "100%" }, animate: { y: hovered ? "-100%" : "0%" }, transition: { type: "spring", stiffness: 200, damping: 22 }, children: /* @__PURE__ */ _jsx(ButtonLabel, { bg: btnOpenBg, clr: btnOpenColor, fontSize, children: "CLOSE" }) }), /* @__PURE__ */ _jsx(motion.div, { style: { position: "absolute", inset: 0 }, animate: { y: hovered ? "0%" : "100%" }, transition: { type: "spring", stiffness: 200, damping: 22 }, initial: false, children: /* @__PURE__ */ _jsx(ButtonLabel, { bg: btnOpenBg, clr: btnOpenColor, fontSize, children: "CLOSE" }) })] })] }) });
 }
 function ButtonLabel({ children, bg, clr, fontSize }) {
-  return /* @__PURE__ */ _jsx("div", { style: { height: "100%", width: "100%", cursor: "pointer", fontSize, display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: bg, color: clr, fontWeight: 500 }, children });
+  return /* @__PURE__ */ _jsx("div", { style: { height: "100%", width: "100%", cursor: "pointer", fontSize, display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: bg, color: clr, fontFamily: '"Roboto", sans-serif', letterSpacing: "0.05em", fontWeight: 300 }, children });
 }
 var defaultProps = { menuBackgroundColor: "#000000", menuTextColor: "#FFFFFF", hoverLineColor: "#FFFFFF", btnClosedBg: "#000000", btnClosedColor: "#FFFFFF", btnOpenBg: "#FFFFFF", btnOpenColor: "#000000", navFontSizeDesktop: 46, navFontSizeMobile: 36, footerFontSizeDesktop: 20, footerFontSizeMobile: 18, btnFontSizeDesktop: 18, btnFontSizeMobile: 16, menuWidthDesktop: "440px", menuHeightDesktop: "460px", menuWidthMobile: "90vw", menuHeightMobile: "60vh", mobileBreakpoint: 768, springStiffness: 60, springDamping: 14, springMass: 1, linkStiffness: 80, linkDamping: 15, linkDelayOffset: 0.03, menuFont: { fontFamily: "Inter", fontWeight: 500 }, navLinks: [{ title: "About", url: "/" }, { title: "Skills", url: "/" }, { title: "Experience", url: "/" }, { title: "Projects", url: "/" }, { title: "Contact", url: "/" }], footerLinksData: [{ title: "Facebook", url: "/" }, { title: "LinkedIn", url: "/" }, { title: "Instagram", url: "/" }, { title: "Twitter", url: "/" }] };
 AnimatedMenu.defaultProps = defaultProps;

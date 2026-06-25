@@ -66,8 +66,14 @@ const HeroSection = () => {
                 menuBackgroundColor="#000000"
                 menuTextColor="#ffffff"
                 hoverLineColor="#ff9f1c"
-                menuWidthDesktop="320px"
-                menuHeightDesktop="350px"
+                menuWidthDesktop="280px"
+                menuHeightDesktop="340px"
+                navFontSizeDesktop={26}
+                navFontSizeMobile={20}
+                footerFontSizeDesktop={14}
+                footerFontSizeMobile={12}
+                btnFontSizeDesktop={18}
+                btnFontSizeMobile={15}
               />
             </div>
           </div>

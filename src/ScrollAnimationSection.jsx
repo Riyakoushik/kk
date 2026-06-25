@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import whatIDoSvg from "./assets/whatido.svg";
 
 // ponytail: registerPlugin done once in App.jsx
 
@@ -33,53 +32,6 @@ const ScrollAnimationSection = () => {
       }));
     });
 
-    // 2. Services header entry (horizontal slide)
-    const servicesTrigger = containerRef.current.querySelector('.services');
-    ownedTriggers.push(ScrollTrigger.create({
-      trigger: servicesTrigger,
-      start: 'top bottom',
-      end: 'top top',
-      scrub: 1,
-      onUpdate: self => {
-        const headers = containerRef.current.querySelectorAll('.services-header');
-        if (headers.length === 3) {
-          gsap.set(headers[0], { x: `${100 - self.progress * 100}%` });
-          gsap.set(headers[1], { x: `${-100 + self.progress * 100}%` });
-          gsap.set(headers[2], { x: `${100 - self.progress * 100}%` });
-        }
-      },
-    }));
-
-    // 3. Services header pin & vertical movement & scaling
-    ownedTriggers.push(ScrollTrigger.create({
-      trigger: servicesTrigger,
-      start: 'top top',
-      end: `+=${window.innerHeight * 1.5}`,
-      pin: true,
-      scrub: 1,
-      pinSpacing: true,
-      onUpdate: self => {
-        const headers = containerRef.current.querySelectorAll('.services-header');
-        if (headers.length === 3) {
-          if (self.progress <= 0.5) {
-            const yProgress = self.progress / 0.5;
-            gsap.set(headers[0], { y: `${yProgress * 100}%` });
-            gsap.set(headers[2], { y: `${yProgress * -100}%` });
-            headers.forEach(header => gsap.set(header, { scale: 1 }));
-          } else {
-            gsap.set(headers[0], { y: '100%' });
-            gsap.set(headers[2], { y: '-100%' });
-
-            const scaleProgress = (self.progress - 0.5) / 0.5;
-            const minScale = window.innerWidth <= 1000 ? 0.35 : 0.15;
-            const scale = 1 - scaleProgress * (1 - minScale);
-
-            headers.forEach(header => gsap.set(header, { scale }));
-          }
-        }
-      },
-    }));
-
     return () => {
       ownedTriggers.forEach(t => t.kill());
     };
@@ -94,21 +46,6 @@ const ScrollAnimationSection = () => {
           I'm from a small town where shortcuts aren't an option. Built my way up through execution and curiosity. Now I'm obsessed with one thing: building <a href="https://discord.com/invite/qDbEUEeg" target="_blank" rel="noopener noreferrer" className="plain-link">systems</a> that actually <a href="https://linkedin.com/in/tkoushik" target="_blank" rel="noopener noreferrer" className="plain-link">think</a>. <a href="https://github.com/Riyakoushik" target="_blank" rel="noopener noreferrer" className="plain-link">RIYA</a> is that bet.
         </h2>
       </section>
-
-      {/* Services Section */}
-      <section className="services h-screen w-full flex flex-col items-center justify-center relative overflow-hidden bg-[#000000]">
-        <div className="services-header w-full py-4 text-center bg-[#000000] will-change-transform translate-x-[100%]">
-          <img src={whatIDoSvg} alt="What I Do" className="mx-auto select-none pointer-events-none object-contain h-[18vh] max-h-[180px] w-auto max-w-[95vw]" />
-        </div>
-        <div className="services-header w-full py-4 text-center bg-[#000000] will-change-transform -translate-x-[100%] z-10">
-          <img src={whatIDoSvg} alt="What I Do" className="mx-auto select-none pointer-events-none object-contain h-[18vh] max-h-[180px] w-auto max-w-[95vw]" />
-        </div>
-        <div className="services-header w-full py-4 text-center bg-[#000000] will-change-transform translate-x-[100%]">
-          <img src={whatIDoSvg} alt="What I Do" className="mx-auto select-none pointer-events-none object-contain h-[18vh] max-h-[180px] w-auto max-w-[95vw]" />
-        </div>
-      </section>
-
-
 
     </div>
   );
