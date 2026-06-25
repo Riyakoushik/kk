@@ -10,6 +10,7 @@ export default defineConfig({
       exclude: [
         /_framer-runtime\.js$/,
         /\/components\/InteractiveTicker\/.*\.jsx?$/,
+        /\/components\/MorphedMenu\/.*\.jsx?$/,
       ],
     }),
     tailwindcss()
