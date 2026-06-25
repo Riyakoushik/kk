@@ -3,6 +3,7 @@ import footerBanner from '../../assets/footer-banner.avif';
 import LayoutIsland from '../../utils/LayoutIsland';
 import ResponsiveWrapper from '../../utils/ResponsiveWrapper';
 import AUQNQ2Aok from '../InteractiveTicker/AUQNQ2Aok';
+import { CallToAction } from '../CallToAction';
 import './Footer.css';
 
 const Footer = () => {
@@ -28,6 +29,9 @@ const Footer = () => {
             />
           </LayoutIsland>
         </div>
+
+        {/* Call to Action Section */}
+        <CallToAction />
 
         {/* Mobile Contact Button (Visible on mobile only) */}
         <a 
