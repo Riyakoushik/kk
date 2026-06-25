@@ -9,8 +9,8 @@ export default defineConfig({
     react({
       exclude: [
         /_framer-runtime\.js$/,
-        /\/components\/[A-Z][^/]*\.js$/,
-        /\/components\/[A-Z][^/]*\.jsx$/,
+        /\/components\/InteractiveTicker\/.*\.jsx?$/,
+        /\/components\/InlineMediaText\/.*\.jsx?$/,
       ],
     }),
     tailwindcss()
