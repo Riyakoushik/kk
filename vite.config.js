@@ -10,7 +10,6 @@ export default defineConfig({
       exclude: [
         /_framer-runtime\.js$/,
         /\/components\/InteractiveTicker\/.*\.jsx?$/,
-        /\/components\/InlineMediaText\/.*\.jsx?$/,
       ],
     }),
     tailwindcss()

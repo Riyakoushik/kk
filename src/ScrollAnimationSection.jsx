@@ -3,9 +3,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import whatIDoSvg from "./assets/whatido.svg";
 
-
-import InlineMediaText from "./components/InlineMediaText/InlineMediaText";
-
 // ponytail: registerPlugin done once in App.jsx
 
 const ScrollAnimationSection = () => {
@@ -113,22 +110,9 @@ const ScrollAnimationSection = () => {
 
       {/* Services Copy Section */}
       <section className="services-copy w-full min-h-screen py-[20vh] flex items-center justify-center px-8 text-center bg-[#000000] relative overflow-hidden">
-        <div className="w-[90%] md:w-[70%] mx-auto z-20">
-          <InlineMediaText
-            text="The best work happens in silence. I obsess over solving real problems, then make them simple. No excess. No shortcuts. Just systems that work and last"
-            textColor="#f4efe7"
-            font={{
-              fontFamily: '"Roboto", sans-serif',
-              fontWeight: 800,
-              lineHeight: "1.25",
-              letterSpacing: "-0.03em",
-              textAlign: "center"
-            }}
-            fontSize={54}
-            fontSizeTablet={32}
-            fontSizeMobile={20}
-          />
-        </div>
+        <h2 className="animate-text text-[clamp(1.5rem,4vw,3.75rem)] font-extrabold text-[#3a3a3a] leading-[1.125] text-center w-[90%] md:w-[70%] tracking-tight z-20 pointer-events-none">
+          The best <a href="#about" className="plain-link">work</a> happens in silence. I obsess over solving real problems, then make them <a href="#projects" className="plain-link">simple</a>. No excess. No shortcuts. Just <a href="#root" className="plain-link">systems</a> that work and last
+        </h2>
       </section>
 
     </div>
