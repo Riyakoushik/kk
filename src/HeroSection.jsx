@@ -55,6 +55,7 @@ const HeroSection = () => {
           <span className="hidden md:inline text-center">BUILDING THE PRODUCT</span>
           <div className="flex items-center gap-6 ml-auto md:ml-0">
             <span className="hidden sm:inline">{dateTime}</span>
+
             <div className="relative w-[110px] h-[46px]">
               <MorphedMenu 
                 navLinks={navLinks}
