@@ -3,18 +3,17 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react({
-      exclude: [
-        /_framer-runtime\.js$/,
-        /\/components\/InteractiveTicker\/.*\.jsx?$/,
-        /\/components\/MorphedMenu\/.*\.jsx?$/,
-      ],
-    }),
-    tailwindcss()
-  ],
+  plugins: [react({
+    exclude: [
+      /_framer-runtime\.js$/,
+      /\/components\/InteractiveTicker\/.*\.jsx?$/,
+      /\/components\/MorphedMenu\/.*\.jsx?$/,
+    ],
+  }), tailwindcss(), cloudflare()],
   base: process.env.GITHUB_ACTIONS ? '/kk/' : '/',
   build: {
     rollupOptions: {
