@@ -20,14 +20,14 @@ var __dai_window=typeof window!=="undefined"?window:undefined;var __dai_navigato
 
 // http-url:https://framerusercontent.com/modules/S3etrgDaCUPnbDznlYrk/dM79fXWlm21PH8ZpFJ25/AUQNQ2Aok.js
 import { jsx as _jsx3, jsxs as _jsxs3 } from "react/jsx-runtime";
-import { addFonts as addFonts3, addPropertyControls as addPropertyControls3, ComponentViewportProvider, ControlType as ControlType3, cx as cx3, forwardLoader, getFonts, SmartComponentScopedContainer, TickerItem as TickerItem2, useActiveVariantCallback as useActiveVariantCallback2, useComponentViewport as useComponentViewport3, useLocaleInfo as useLocaleInfo3, useVariantState as useVariantState3, withCSS as withCSS3, withTickerFX as withTickerFX2 } from "./_framer-runtime.js";
+import { addFonts as addFonts3, addPropertyControls as addPropertyControls3, ComponentViewportProvider, ControlType as ControlType3, cx as cx3, forwardLoader, getFonts, SmartComponentScopedContainer, TickerItem as TickerItem2, useActiveVariantCallback as useActiveVariantCallback2, useComponentViewport as useComponentViewport3, useLocaleInfo as useLocaleInfo3, useVariantState as useVariantState3, withCSS as withCSS3, withTickerFX as withTickerFX2 } from "../shared-framer-runtime.js";
 import { LayoutGroup as LayoutGroup3, motion as motion3, MotionConfigContext as MotionConfigContext3 } from "framer-motion";
 import * as React3 from "react";
 import { useRef as useRef3 } from "react";
 
 // http-url:https://framerusercontent.com/modules/A9C8kAR5adM6ih93aNeo/3lf7G9hxHdRJpg0RUQC9/RrwkbQXUI.js
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { addFonts, addPropertyControls, ControlType, cx, getLoadingLazyAtYPosition, Image, Link, RichText, TickerItem, useComponentViewport, useLocaleInfo, useVariantState, withCSS, withTickerFX } from "./_framer-runtime.js";
+import { addFonts, addPropertyControls, ControlType, cx, getLoadingLazyAtYPosition, Image, Link, RichText, TickerItem, useComponentViewport, useLocaleInfo, useVariantState, withCSS, withTickerFX } from "../shared-framer-runtime.js";
 import { LayoutGroup, motion, MotionConfigContext } from "framer-motion";
 import * as React from "react";
 import { useRef } from "react";
@@ -79,7 +79,7 @@ addFonts(FramerRrwkbQXUI, [{ explicitInter: true, fonts: [{ cssFamilyName: "Inte
 
 // http-url:https://framerusercontent.com/modules/NciWw59lNsn9YHvQ2Dyu/GgpOB9Bh43jJH4lOYeoO/vvqLyp4pX.js
 import { jsx as _jsx2, jsxs as _jsxs2 } from "react/jsx-runtime";
-import { addFonts as addFonts2, addPropertyControls as addPropertyControls2, ControlType as ControlType2, cx as cx2, getLoadingLazyAtYPosition as getLoadingLazyAtYPosition2, Image as Image1, Link as Link2, RichText as RichText2, useActiveVariantCallback, useComponentViewport as useComponentViewport2, useLocaleInfo as useLocaleInfo2, useVariantState as useVariantState2, withCSS as withCSS2 } from "./_framer-runtime.js";
+import { addFonts as addFonts2, addPropertyControls as addPropertyControls2, ControlType as ControlType2, cx as cx2, getLoadingLazyAtYPosition as getLoadingLazyAtYPosition2, Image as Image1, Link as Link2, RichText as RichText2, useActiveVariantCallback, useComponentViewport as useComponentViewport2, useLocaleInfo as useLocaleInfo2, useVariantState as useVariantState2, withCSS as withCSS2 } from "../shared-framer-runtime.js";
 import { LayoutGroup as LayoutGroup2, motion as motion2, MotionConfigContext as MotionConfigContext2 } from "framer-motion";
 import * as React2 from "react";
 import { useRef as useRef2 } from "react";

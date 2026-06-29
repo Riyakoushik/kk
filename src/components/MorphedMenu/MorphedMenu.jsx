@@ -22,7 +22,7 @@ var __dai_window=typeof window!=="undefined"?window:undefined;var __dai_navigato
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { addPropertyControls, ControlType, useIsStaticRenderer } from "./_framer-runtime.js";
+import { addPropertyControls, ControlType, useIsStaticRenderer } from "../shared-framer-runtime.js";
 function AnimatedMenu(props) {
   const {
     navLinks = defaultProps.navLinks,

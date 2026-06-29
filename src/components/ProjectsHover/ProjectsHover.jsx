@@ -95,7 +95,13 @@ const ProjectsHover = () => {
 
       const cleanups = [];
       projects.forEach((project, index) => {
-        const handleMouseEnter = () => {
+        const handleMouseEnter = (e) => {
+          // Instantly snap the thumbnail position to the cursor entry point to avoid top-left scale-up glitch
+          gsap.set(projectThumbnail, {
+            x: e.clientX,
+            y: e.clientY,
+          });
+
           gsap.to(projectThumbnail, {
             scale: 1,
             duration: 0.4,
