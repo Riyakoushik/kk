@@ -13,22 +13,25 @@ const Skiper19 = () => {
       <h1 className="mt-24 text-center text-[15.5vw] font-bold leading-[0.9] tracking-tighter lg:text-[16.6vw] whitespace-nowrap select-none pointer-events-none">
         Talari koushik
       </h1>
-      <div className="mt-20 flex w-full flex-col items-start gap-5 px-4 font-medium lg:mt-0 lg:flex-row lg:justify-between relative">
+      <div className="mt-20 flex w-full flex-col items-start gap-8 px-4 font-medium lg:mt-0 lg:flex-row lg:justify-between relative">
         <div className="flex w-full items-center justify-between gap-12 uppercase lg:w-fit lg:justify-center text-white/50 text-xs tracking-wider">
           <p className="w-fit">
-            punjab, india <br />
-            and online
+            Location <br />
+            <span className="text-white">Kurnool, India & Remote</span>
           </p>
           <p className="w-fit text-right lg:text-left">
-            sep 1, 2025 <br /> the Moosa pind
+            Role <br />
+            <span className="text-white">Product Manager / AI Specialist</span>
           </p>
         </div>
         <div className="flex w-full flex-wrap items-center justify-between gap-12 uppercase lg:w-fit lg:justify-center text-white/50 text-xs tracking-wider">
           <p className="w-fit">
-            online <br /> free
+            Education & training <br />
+            <span className="text-white">BCA Graduate / McKinsey Forward</span>
           </p>
           <p className="w-fit text-right lg:text-left">
-            in person tickets <br /> $600
+            Status <br />
+            <span className="text-white">Open to Opportunities (Full-Time)</span>
           </p>
         </div>
       </div>

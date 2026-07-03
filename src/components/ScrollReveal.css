@@ -1,0 +1,18 @@
+.scroll-reveal {
+  margin: 20px 0;
+}
+
+.scroll-reveal-text {
+  font-size: clamp(1.5rem, 4vw, 3.75rem);
+  line-height: 1.125;
+  font-weight: 800;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: -0.025em;
+  color: #3a3a3a; /* base opacity handled by inline styling, but setting base color */
+}
+
+.word {
+  display: inline-block;
+  color: #ffffff;
+}

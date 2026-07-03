@@ -4,8 +4,6 @@ import HeroSection from './HeroSection'
 import ScrollAnimationSection from './ScrollAnimationSection'
 import HorizontalWords from './components/truus/HorizontalWords'
 import ProjectsHover from './components/ProjectsHover/ProjectsHover'
-import FramerTicker from './components/InteractiveTicker/FramerTicker'
-import MetricsSection from './components/MetricsSection'
 import { Skiper19 } from './components/Skiper19'
 import { DesktopPromptModal } from './components/DesktopPromptModal'
 import { Agentation } from 'agentation'
@@ -53,8 +51,6 @@ function App() {
       <ScrollAnimationSection />
       <HorizontalWords />
       <ProjectsHover />
-      <FramerTicker />
-      <MetricsSection />
       <Skiper19 />
       {import.meta.env.DEV && <Agentation />}
     </>
