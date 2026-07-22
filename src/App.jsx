@@ -7,6 +7,7 @@ import ProjectsHover from './components/ProjectsHover/ProjectsHover'
 import { Skiper19 } from './components/Skiper19'
 import { DesktopPromptModal } from './components/DesktopPromptModal'
 import { Agentation } from 'agentation'
+import CustomCursor from './components/CustomCursor'
 import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -45,6 +46,7 @@ function App() {
 
   return (
     <>
+      <CustomCursor />
       <LoadingScreen />
       <DesktopPromptModal />
       <HeroSection />
