@@ -11,10 +11,16 @@ export default defineConfig({
         /_framer-runtime\.js$/,
         /\/components\/InteractiveTicker\/.*\.jsx?$/,
         /\/components\/MorphedMenu\/.*\.jsx?$/,
+        /\/components\/ui\/.*\.js$/,
       ],
     }),
     tailwindcss()
   ],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src'),
+    },
+  },
   base: process.env.GITHUB_ACTIONS ? '/kk/' : '/',
   build: {
     rollupOptions: {

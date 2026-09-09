@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
-import { LoadingScreen } from './components/LoadingScreen'
 import HeroSection from './HeroSection'
 import ScrollAnimationSection from './ScrollAnimationSection'
-import HorizontalWords from './components/truus/HorizontalWords'
-import ProjectsHover from './components/ProjectsHover/ProjectsHover'
-import { Skiper19 } from './components/Skiper19'
+import FooterSection from './components/FooterSection'
+import Hero42Section from './components/Hero42Section'
+import Testimonials13 from './components/Testimonials13'
 import { DesktopPromptModal } from './components/DesktopPromptModal'
 import { Agentation } from 'agentation'
 import CustomCursor from './components/CustomCursor'
@@ -47,13 +46,13 @@ function App() {
   return (
     <>
       <CustomCursor />
-      <LoadingScreen />
       <DesktopPromptModal />
+
       <HeroSection />
       <ScrollAnimationSection />
-      <HorizontalWords />
-      <ProjectsHover />
-      <Skiper19 />
+      <Hero42Section />
+      <Testimonials13 />
+      <FooterSection />
       {import.meta.env.DEV && <Agentation />}
     </>
   )

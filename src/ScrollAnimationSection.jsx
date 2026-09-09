@@ -5,8 +5,8 @@ const ScrollAnimationSection = () => {
     <div className="scroll-animation-wrapper w-full bg-[#000000] text-white overflow-x-hidden font-roboto">
       
       {/* About Section */}
-      <section id="about" className="about h-screen w-full flex items-start justify-center pt-16 md:pt-28 px-8 relative overflow-hidden bg-[#000000]">
-        <div className="w-[95%] max-w-[1600px]">
+      <section id="about" className="about min-h-[50vh] w-full flex items-start justify-start pt-16 md:pt-28 pb-16 relative overflow-hidden bg-[#000000]">
+        <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-8 xl:px-12 max-[479px]:px-4">
           <ScrollReveal
             baseOpacity={0.15}
             enableBlur={true}

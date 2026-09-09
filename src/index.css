@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=DM+Mono:wght@400;500&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Hedvig+Letters+Serif:opsz@12..24&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Manrope:wght@400;500;600;700&family=Monda:wght@400;500;600;700&family=Outfit:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&family=Red+Hat+Display:wght@400;500;600;700&family=Rethink+Sans:wght@400;500;600;700&family=Tillana:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&display=swap");
 @font-face {
   font-family: 'Bebas Neue';
   font-style: normal;
@@ -55,12 +57,16 @@
 }
 
 @import "tailwindcss";
+@import "./originkit-section-themes.css";
+@import "./originkit-section-theme.css";
 
 @theme {
   --font-bebas: "Bebas Neue", sans-serif;
   --font-roboto: "Roboto", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
   --font-bodoni: "Bodoni Moda", serif;
+  --font-vidaloka: "Vidaloka", serif;
+  --font-playfair: "Playfair Display", serif;
   --font-manrope: "Manrope", sans-serif;
 }
 
@@ -357,4 +363,22 @@ body {
   }
 }
 
+/* Marquee Animations for Testimonials-13 */
+@keyframes marquee-endless {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
+.animate-marquee-endless {
+  animation: marquee-endless var(--duration, 45s) linear infinite;
+  will-change: transform;
+}
+
+.mask-edge-fade {
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
