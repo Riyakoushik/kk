@@ -79,7 +79,7 @@ export function FooterSection() {
                     className="
                       bg-white h-full w-0
                       group-hover:w-full
-                      transition-all duration-300 ease-in-out
+                      transition-[width] duration-200 ease-out
                     "
                   />
                 </div>

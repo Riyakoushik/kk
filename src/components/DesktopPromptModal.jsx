@@ -102,22 +102,7 @@ export const DesktopPromptModal = () => {
 
             <button
               onClick={() => setIsOpen(false)}
-              style={{
-                backgroundColor: "#ffffff",
-                color: "#000000",
-                border: "none",
-                borderRadius: "30px",
-                padding: "12px 32px",
-                fontSize: "14px",
-                fontWeight: 500,
-                cursor: "pointer",
-                transition: "opacity 0.2s ease",
-                width: "100%",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              className="w-full bg-white text-black font-medium text-sm uppercase tracking-wider py-3 px-8 rounded-full cursor-pointer transition-transform duration-150 ease-out hover:bg-neutral-200 active:scale-[0.97]"
             >
               Proceed Anyway
             </button>

@@ -214,8 +214,8 @@ export default function SwapButton({
                 alignItems: "center",
                 justifyContent: "center",
               }}
-              initial={{ scale: 0, rotate: -45 }}
-              animate={{ scale: 1, rotate: 0 }}
+              initial={{ scale: 0.9, opacity: 0, rotate: -15 }}
+              animate={{ scale: 1, opacity: 1, rotate: 0 }}
               whileHover={{ scale: 1.15, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
@@ -239,8 +239,8 @@ export default function SwapButton({
                 alignItems: "center",
                 justifyContent: "center",
               }}
-              initial={{ scale: 0, rotate: 45 }}
-              animate={{ scale: 1, rotate: 0 }}
+              initial={{ scale: 0.9, opacity: 0, rotate: 15 }}
+              animate={{ scale: 1, opacity: 1, rotate: 0 }}
               whileHover={{ scale: 1.15, rotate: -5 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.05 }}

@@ -571,7 +571,7 @@ void main() {
                 </div>
                 <div className="card-dark__foot-text">
                   <p className="card-dark__title">Predictive Performance Metrics</p>
-                  <p className="card-dark__sub">buidiiing and traind with real emotions and memeories</p>
+                  <p className="card-dark__sub">Built and trained with real emotions and memories</p>
                 </div>
               </div>
             </div>

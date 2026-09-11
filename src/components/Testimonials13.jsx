@@ -198,7 +198,7 @@ function TestimonialCard({ item }) {
   return (
     <div className="flex flex-col odd:flex-col-reverse w-[370px] sm:w-[410px] shrink-0 gap-3">
       {/* Testimonial Quote Box with strict equal height and flex column alignment */}
-      <div className="relative flex flex-col justify-between h-[230px] rounded-2xl border border-white/10 bg-[#0d0d0d]/90 backdrop-blur-md p-6 transition-all duration-300 hover:border-white/20 hover:bg-[#121212]">
+      <div className="relative flex flex-col justify-between h-[230px] rounded-2xl border border-white/10 bg-[#0d0d0d]/90 backdrop-blur-md p-6 transition-[border-color,background-color] duration-200 ease-out hover:border-white/20 hover:bg-[#121212]">
         <div>
           <div className="flex items-center gap-3 mb-3">
             <UserProfileAvatar color={item.accentColor} name={item.name} />
@@ -277,17 +277,19 @@ export default function Testimonials13() {
         </div>
       </div>
 
-      {/* Seamless Dual-Track Infinite Marquee */}
-      <div className="relative w-full overflow-hidden mask-edge-fade group flex select-none">
-        <div className="flex shrink-0 items-center gap-5 pr-5 [--duration:45s] animate-marquee-endless group-hover:[animation-play-state:paused]">
-          {testimonials.map((t) => (
-            <TestimonialCard key={`track1-${t.id}`} item={t} />
-          ))}
-        </div>
-        <div className="flex shrink-0 items-center gap-5 pr-5 [--duration:45s] animate-marquee-endless group-hover:[animation-play-state:paused]" aria-hidden="true">
-          {testimonials.map((t) => (
-            <TestimonialCard key={`track2-${t.id}`} item={t} />
-          ))}
+      {/* Seamless Dual-Track Infinite Marquee constrained to footer width */}
+      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-8 xl:px-12 max-[479px]:px-4">
+        <div className="relative w-full overflow-hidden mask-edge-fade group flex select-none">
+          <div className="flex shrink-0 items-center gap-5 pr-5 [--duration:45s] animate-marquee-endless group-hover:[animation-play-state:paused]">
+            {testimonials.map((t) => (
+              <TestimonialCard key={`track1-${t.id}`} item={t} />
+            ))}
+          </div>
+          <div className="flex shrink-0 items-center gap-5 pr-5 [--duration:45s] animate-marquee-endless group-hover:[animation-play-state:paused]" aria-hidden="true">
+            {testimonials.map((t) => (
+              <TestimonialCard key={`track2-${t.id}`} item={t} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
