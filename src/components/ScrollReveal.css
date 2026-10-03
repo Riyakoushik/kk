@@ -5,10 +5,10 @@
 .scroll-reveal-text {
   font-size: clamp(1.5rem, 4vw, 3.75rem);
   line-height: 1.25;
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
-  font-family: "Manrope", sans-serif;
-  letter-spacing: -0.02em;
+  font-family: var(--font-geist-pixel-circle, "Geist Pixel Circle", sans-serif);
+  letter-spacing: normal;
   color: #3a3a3a; /* base opacity handled by inline styling, but setting base color */
 }
 

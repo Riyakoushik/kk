@@ -215,7 +215,7 @@ function TestimonialCard({ item }) {
           </div>
 
           {/* Challenge/Outcome Tag */}
-          <div className="mb-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-emerald-400">
+          <div className="mb-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-white/[0.04] border border-white/[0.08] text-[11px] font-geist-mono text-emerald-400">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
             <span className="truncate">{item.tag}</span>
           </div>
@@ -262,12 +262,12 @@ export default function Testimonials13() {
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 xl:px-12 mb-14">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-widest text-neutral-400 mb-5">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-xs font-geist-mono uppercase tracking-widest text-neutral-400 mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_8px_#3b82f6]" />
             Crisis & Timeline Rescues
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.03em] text-white font-manrope md:whitespace-nowrap">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.03em] text-white font-geist md:whitespace-nowrap">
             When Timelines Crunch & Systems Break
           </h2>
 

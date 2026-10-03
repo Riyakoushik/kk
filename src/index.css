@@ -56,6 +56,38 @@
   src: url('./assets/Manrope-Bold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Geist Sans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./assets/Geist-Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./assets/GeistMono-Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Geist Pixel';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/GeistPixel-Square.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Geist Pixel Circle';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/GeistPixel-Circle.woff2') format('woff2');
+}
+
 @import "tailwindcss";
 
 @theme {
@@ -66,12 +98,17 @@
   --font-playfair: "Playfair Display", serif;
   --font-manrope: "Manrope", sans-serif;
   --font-charm: "Charm", cursive;
+  --font-geist: "Geist Sans", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+  --font-geist-pixel: "Geist Pixel", sans-serif;
+  --font-geist-pixel-circle: "Geist Pixel Circle", sans-serif;
 }
 
 html,
 body {
   background-color: #000000;
   color: #ffffff;
+  font-family: var(--font-geist);
 }
 
 /* Plain link wrapper to keep visual text unchanged for SEO/AEO contextual links */
@@ -83,7 +120,7 @@ body {
 
 /* Scroll Animation Styles */
 .scroll-animation-wrapper {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-geist-pixel-circle, "Geist Pixel Circle", sans-serif);
 }
 
 .animate-text {

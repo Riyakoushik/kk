@@ -39,7 +39,7 @@ export const DesktopPromptModal = () => {
             alignItems: "center",
             justifyContent: "center",
             padding: "24px",
-            fontFamily: '"Roboto", "Manrope", sans-serif',
+            fontFamily: 'var(--font-geist, "Geist Sans", sans-serif)',
           }}
         >
           <motion.div

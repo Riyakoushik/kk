@@ -21,7 +21,7 @@ export function FooterSection() {
         pt-32 pb-10
         max-[767px]:pt-24
         max-[479px]:pt-20
-        font-manrope text-white
+        font-geist text-white
         bg-black
         relative overflow-hidden
       "
@@ -43,15 +43,16 @@ export function FooterSection() {
           "
         >
           {/* Left: tagline */}
-          <div className="max-w-[640px]">
+          <div className="max-w-[850px]">
             <h2
               className="
-                text-white font-medium
-                text-4xl sm:text-5xl lg:text-[54px] leading-[1.08] tracking-[-0.03em]
-                max-[479px]:text-[32px] max-[479px]:leading-[1.15]
+                text-white font-normal font-geist-pixel-circle
+                text-3xl sm:text-4xl lg:text-[44px] leading-[1.2] tracking-tight
+                max-[479px]:text-[26px] max-[479px]:leading-[1.2]
+                translate-y-2 sm:translate-y-2.5
               "
             >
-              Let's connect and create something great together.
+              Let's connect and create<br className="hidden sm:inline" /> something great together.
             </h2>
           </div>
 
@@ -120,7 +121,7 @@ export function FooterSection() {
           className="
             flex flex-wrap justify-between items-center gap-4 mt-12 pt-8
             border-t border-white/10
-            text-xs sm:text-sm text-white/50
+            font-geist-mono text-xs sm:text-sm text-white/50
             max-[991px]:flex-col max-[991px]:items-start
           "
         >

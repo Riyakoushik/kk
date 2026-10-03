@@ -4,7 +4,7 @@
   background-color: #000000;
   color: #ffffff;
   overflow: hidden;
-  font-family: var(--font-manrope, "Manrope", sans-serif);
+  font-family: var(--font-geist, "Geist Sans", sans-serif);
 }
 
 .hero-dark__texture {
@@ -119,11 +119,12 @@
 }
 
 .headline-dark {
+  font-family: var(--font-geist-pixel-circle, "Geist Pixel Circle", sans-serif);
   font-size: clamp(32px, 4.03vw, 56px);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -286,10 +287,11 @@
 }
 
 .card-dark__title {
-  font-size: 21px;
-  line-height: 1.1;
-  letter-spacing: -0.4px;
-  font-weight: 600;
+  font-family: var(--font-geist-pixel-circle, "Geist Pixel Circle", sans-serif);
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 400;
   margin: 0;
   background-image: linear-gradient(130deg, #ffffff 0%, #bbbbbb 60%, #888888 100%);
   -webkit-background-clip: text;
@@ -671,10 +673,13 @@
 }
 
 .stat-dark__val {
+  font-family: var(--font-geist-mono, "Geist Mono", monospace);
+  font-variant-numeric: tabular-nums;
   font-size: 34px;
   line-height: 1;
   color: rgba(255, 255, 255, 0.4);
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: -0.04em;
   margin: 0;
 }
 
