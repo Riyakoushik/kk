@@ -15,29 +15,69 @@ export default function CustomCursor() {
     // Set initial position off-screen and center the cursor element
     gsap.set(cursor, { xPercent: -50, yPercent: -50, x: -100, y: -100 });
 
-    const xTo = gsap.quickTo(cursor, "x", { duration: 0.2, ease: "power3.out" });
-    const yTo = gsap.quickTo(cursor, "y", { duration: 0.2, ease: "power3.out" });
+    const setX = gsap.quickSetter(cursor, "x", "px");
+    const setY = gsap.quickSetter(cursor, "y", "px");
 
     const onMouseMove = (e) => {
-      xTo(e.clientX);
-      yTo(e.clientY);
+      setX(e.clientX);
+      setY(e.clientY);
     };
 
+    let isHovering = false;
     const onMouseOver = (e) => {
       const target = e.target;
-      if (target && (target.closest('a') || target.closest('button') || target.closest('[role="button"]') || target.closest('input[type="submit"]'))) {
-        gsap.to(cursor, { scale: 2.5, backgroundColor: 'rgba(255, 255, 255, 0.8)', duration: 0.2 });
-      } else {
-        gsap.to(cursor, { scale: 1, backgroundColor: '#ffffff', duration: 0.2 });
+      if (target && target.closest('[data-cursor-ignore], .swap-follower')) {
+        if (isHovering) {
+          isHovering = false;
+          gsap.to(cursor, {
+            scale: 1,
+            backgroundColor: '#ffffff',
+            duration: 0.15,
+            ease: 'power2.out',
+            overwrite: 'auto',
+          });
+        }
+        return;
+      }
+
+      const shouldHover = Boolean(
+        target &&
+        (target.closest('a') ||
+         target.closest('button') ||
+         target.closest('[role="button"]') ||
+         target.closest('input[type="submit"]'))
+      );
+
+      if (shouldHover !== isHovering) {
+        isHovering = shouldHover;
+        gsap.to(cursor, {
+          scale: shouldHover ? 2.5 : 1,
+          backgroundColor: shouldHover ? 'rgba(255, 255, 255, 0.8)' : '#ffffff',
+          duration: 0.15,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        });
       }
     };
 
-    window.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseover', onMouseOver);
+    const onMouseLeave = () => {
+      gsap.to(cursor, { opacity: 0, duration: 0.15, overwrite: 'auto' });
+    };
+
+    const onMouseEnter = () => {
+      gsap.to(cursor, { opacity: 1, duration: 0.15, overwrite: 'auto' });
+    };
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    document.addEventListener('mouseover', onMouseOver, { passive: true });
+    document.addEventListener('mouseleave', onMouseLeave);
+    document.addEventListener('mouseenter', onMouseEnter);
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseover', onMouseOver);
+      document.removeEventListener('mouseleave', onMouseLeave);
+      document.removeEventListener('mouseenter', onMouseEnter);
     };
   }, []);
 

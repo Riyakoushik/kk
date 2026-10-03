@@ -27,16 +27,20 @@ export default function SwapButton({
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
 
-  // Calibrated spring physics for a premium, organic fluid lag
-  const springX = useSpring(rawX, { stiffness: 60, damping: 20, mass: 0.8 });
-  const springY = useSpring(rawY, { stiffness: 60, damping: 20, mass: 0.8 });
+  // Critically damped spring tracking (ultra-fluid, zero oscillation)
+  const springX = useSpring(rawX, { stiffness: 220, damping: 26, mass: 0.1 });
+  const springY = useSpring(rawY, { stiffness: 220, damping: 26, mass: 0.1 });
 
   useEffect(() => {
     const footer = footerRef?.current;
     if (!footer) return;
 
+    let rect = footer.getBoundingClientRect();
+    const updateRect = () => {
+      rect = footer.getBoundingClientRect();
+    };
+
     const handleMouseMove = (e) => {
-      const rect = footer.getBoundingClientRect();
       // Center the button under the mouse coordinates relative to the footer container
       const targetX = e.clientX - rect.left - 86;
       const targetY = e.clientY - rect.top - 24;
@@ -46,7 +50,7 @@ export default function SwapButton({
     };
 
     const handleMouseEnter = (e) => {
-      const rect = footer.getBoundingClientRect();
+      updateRect();
       const targetX = e.clientX - rect.left - 86;
       const targetY = e.clientY - rect.top - 24;
 
@@ -61,14 +65,18 @@ export default function SwapButton({
       setShowOptions(false);
     };
 
-    footer.addEventListener("mousemove", handleMouseMove);
-    footer.addEventListener("mouseenter", handleMouseEnter);
-    footer.addEventListener("mouseleave", handleMouseLeave);
+    footer.addEventListener("mousemove", handleMouseMove, { passive: true });
+    footer.addEventListener("mouseenter", handleMouseEnter, { passive: true });
+    footer.addEventListener("mouseleave", handleMouseLeave, { passive: true });
+    window.addEventListener("scroll", updateRect, { passive: true });
+    window.addEventListener("resize", updateRect, { passive: true });
 
     return () => {
       footer.removeEventListener("mousemove", handleMouseMove);
       footer.removeEventListener("mouseenter", handleMouseEnter);
       footer.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("scroll", updateRect);
+      window.removeEventListener("resize", updateRect);
     };
   }, [footerRef, rawX, rawY]);
 
@@ -82,7 +90,8 @@ export default function SwapButton({
 
   return (
     <motion.div
-      className={`absolute cursor-pointer z-10 ${className}`}
+      data-cursor-ignore="true"
+      className={`swap-follower absolute cursor-pointer z-10 will-change-transform ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false);
@@ -114,6 +123,16 @@ export default function SwapButton({
           width: "172px",
         }}
       >
+        {/* Continuous hit-test surface so cursor never falls into gaps during hover animation */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            pointerEvents: "auto",
+          }}
+        />
         {!showOptions ? (
           <>
             {/* Text Pill - moves left and tilts on hover */}
