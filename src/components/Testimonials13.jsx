@@ -1,5 +1,4 @@
-import React from "react";
-import { cn } from "@/lib/utils";
+
 
 // 8 Company Brand Marks (Enlarged with bolder icons & typography)
 const LogoFluentgrid = (props) => (
@@ -71,7 +70,7 @@ const LogoSajix = (props) => (
 );
 
 // Custom User Profile SVG Avatar based on vecteezy profile silhouette
-const UserProfileAvatar = ({ color = "#38bdf8", name }) => (
+const UserProfileAvatar = ({ color = "#38bdf8" }) => (
   <div
     className="relative w-11 h-11 rounded-full flex items-center justify-center border border-white/15 ring-2 ring-white/5 shrink-0 overflow-hidden"
     style={{

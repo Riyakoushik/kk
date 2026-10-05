@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import SwapButton from './SwapButton';
 
 export function FooterSection() {

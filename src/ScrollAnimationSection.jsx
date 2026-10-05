@@ -2,7 +2,7 @@ import ScrollReveal from "./components/ScrollReveal";
 
 const ScrollAnimationSection = () => {
   return (
-    <div className="scroll-animation-wrapper w-full bg-[#000000] text-white overflow-x-hidden font-geist-pixel-circle">
+    <div className="scroll-animation-wrapper w-full bg-[#000000] text-white overflow-x-hidden font-geist">
       
       {/* About Section */}
       <section id="about" className="about min-h-[50vh] w-full flex items-start justify-start pt-16 md:pt-28 pb-16 relative overflow-hidden bg-[#000000]">
@@ -13,7 +13,7 @@ const ScrollAnimationSection = () => {
             baseRotation={2}
             blurStrength={8}
             containerClassName="w-full"
-            textClassName="text-[clamp(1.35rem,3.2vw,2.65rem)] font-normal text-left tracking-normal leading-[1.35] font-geist-pixel-circle"
+            textClassName="text-[clamp(1.5rem,3.8vw,3.25rem)] font-medium text-left tracking-[-0.03em] leading-[1.25] font-geist"
             wordAnimationEnd="bottom 40%"
             rotationEnd="bottom 50%"
           >

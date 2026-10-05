@@ -7,6 +7,7 @@ import Testimonials13 from './components/Testimonials13'
 import { DesktopPromptModal } from './components/DesktopPromptModal'
 import { Agentation } from 'agentation'
 import CustomCursor from './components/CustomCursor'
+import CatLayer from './components/CatLayer'
 import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -46,6 +47,7 @@ function App() {
   return (
     <>
       <CustomCursor />
+      <CatLayer />
       <DesktopPromptModal />
 
       <HeroSection />
